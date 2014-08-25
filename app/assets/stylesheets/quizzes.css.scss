@@ -1,0 +1,176 @@
+.quiz-video-prompt {
+	font-size: 16px;
+	margin-left: 20px;
+}
+
+.quiz-container {
+	margin-top: 20px;
+}
+
+.question-description {
+	background-color: #ffffff;
+	padding: 20px;
+	@include border-radius(4px);
+	border: 1px solid #ddd;
+	font-size: 20px;
+	line-height: 22px;
+	margin-bottom: 15px;
+}
+
+.choice-container {
+	background-color: #ffffff;
+	padding: 20px;
+	@include border-radius(4px);
+	border: 1px solid #ddd;
+	font-size: 16px;
+	margin-bottom: 4px;
+	width: 750px;
+	display: inline-block;
+}
+
+.choice-letter {
+	width: 52px;
+	padding: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	display: inline-block;
+}
+
+// these classes will be applied/removed with javascript...
+
+.choice-container.purple.active {
+	background-color: $purple;
+	color: $white;
+}
+
+.choice-container.green.active {
+	background-color: $green;
+	color: $white;
+}
+
+.choice-container.blue.active {
+	background-color: $blue;
+	color: $white;
+}
+
+.choice-container.grey.active {
+	background-color: $dark-grey;
+	color: $white;
+}
+
+.choice-container.purple.hover {
+	border-color: $purple;
+	color: $black;
+}
+
+.choice-container.green.hover {
+	border-color: $green;
+	color: $black;
+}
+
+.choice-container.blue.hover {
+	border-color: $blue;
+	color: $black;
+}
+
+.choice-container.grey.hover {
+	border-color: $dark-grey;
+	color: $black;
+}
+
+.choice-container.disabled {
+	border-color: $dark-grey;
+	background-color: lighten($dark-grey, 20%);
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+
+.quiz-answer.active {
+	background-color: $blue;
+	color: $white;
+	@include box-shadow(none);
+}
+
+// end javascript-applied classes
+
+.choice-result {
+	padding: 20px;
+	font-size: 16px;
+	text-align: center;
+}
+
+.quiz-answer {
+	width: 650px;
+	height: 50px;
+	font-size: 16px;
+	margin-bottom: 10px;
+	&:focus {
+		@include box-shadow(none);
+		border-color: $blue;
+	}
+	&:disabled {
+		cursor: default;
+	}
+}
+
+input[type="submit"].answer-submit-button {
+	height: 50px;
+	font-size: 16px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.field-question-form {
+	margin-top: 40px;
+}
+
+.quiz-complete-container {
+	background-color: #ffffff;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	margin-left: 100px;
+	margin-right: 100px;
+	@include border-radius(4px);
+	border: 1px solid #ddd;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.quiz-complete-text {
+	margin-bottom: 20px;
+}
+
+.score-container {
+	margin-bottom: 40px;
+}
+
+.delete-question-container {
+	margin-top: 5px;
+}
+
+[id*="input-section-name-"] {
+  padding: 5px;
+  margin-bottom: 0px;
+}
+
+.choice-form-item {
+	list-style: none;
+}
+
+.edit-choice-form-list {
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+
+.choice-delete {
+	font-size: 12px;
+	color: lighten($dark-grey, 20%);
+	&:hover {
+		cursor: pointer;
+		color: $dark-grey;
+		text-decoration: none;
+	}
+	margin-left: 3px;
+}

@@ -1,0 +1,61 @@
+<%= provide(:title, 'Account Settings') %>
+
+<!-- This view may or may not be used in the settings menu... -->
+
+<div class="row">
+
+  <%= render 'settings/settings_nav', :active => :account %>
+
+  <div class="span9 grey-box">
+  <h2>Account Information</h2><br/>
+
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+
+    <%= f.label :full_name, "Full Name", :class => "inline" %>
+    <%= f.text_field :full_name %>
+
+    <div class="accordion" id="password-accordion">
+      <div class="accordion-group">
+        <div class="accordion-heading white">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#password-accordion" href="#collapseOne">
+            <i class="icon-caret-down"></i> Change Password
+          </a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <% if @user.standard_account? %>
+              <strong>Note:</strong>
+              You only need to worry about this section if you want to change your password.
+              <br/><br/>
+              <%= f.label :current_password, "Old Password", :class => "inline"%>
+              <%= f.password_field :current_password %>
+            <% else %>
+              <strong>Note:</strong>
+              If you want to be able to login with a username and password, fill out the fields below.
+              Otherwise, you can just leave them blank.
+              <br/><br/>
+              <%= f.hidden_field :current_password, :value => "" %>
+            <% end %>
+
+            <%= f.label :password, "New Password", :class => "inline"%>
+            <%= f.password_field :password, :autocomplete => "off" %>
+
+            <%= f.label :password_confirmation, "Confirm New Password" %>
+            <%= f.password_field :password_confirmation %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= f.submit "Update Info", :class => "btn btn-large btn-blue" %>
+  <% end %>
+
+  </div>
+</div>

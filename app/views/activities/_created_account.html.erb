@@ -1,0 +1,19 @@
+<%# 
+	
+	This partial requires two arguments- 
+	activity = the activity object 
+	size = the size (applied as a css class, default = medium)
+
+	%>
+
+<div class="activity-item activity-item-<%= size %>">
+	<span class="activity-points plus">
+		<strong>+</strong>50 points
+	</span>
+	<%= "<br/>".html_safe if size == :small %>
+	Joined the CrowdCourse community!
+	<br/>
+	<span class="activity-item-time">
+		<%= time_ago_in_words activity.created_at %> ago
+	</span>
+</div>

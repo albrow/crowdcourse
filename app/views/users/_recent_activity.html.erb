@@ -1,0 +1,8 @@
+<% limit ||= 15 %>
+<% size ||= :medium %>
+
+<% @user.recent_activity(limit).sort {|x,y| y.created_at <=> x.created_at}.each do |a| %>
+	
+	<%= render "activities/#{a.kind}", :activity => a, :size => size %>
+
+<% end %>

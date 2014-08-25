@@ -1,0 +1,2 @@
+module MailingListMemberHelper
+end

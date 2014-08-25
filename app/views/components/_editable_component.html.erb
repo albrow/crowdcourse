@@ -1,0 +1,50 @@
+<% accent_color ||= :blue %>
+
+<% component ||= @component %>
+
+<%= content_tag_for :li, component, :class => "editable-component with-color",
+			'data-id' => component.id, 'data-change-section-url' => change_section_url do %>
+	<div class="editable-component-header" id="editable-component-header-<%= component.id %>">
+		<span class="handle">&#8942;</span>
+	  <%= link_to component.name, component, :id => "component_name_#{component.id}" %>
+	  <div class="component-delete pull-right" rel="tooltip" title="delete"
+	  		data-id="<%= component.id %>" data-delete-url="<%= destroy_component_url %>"
+	  		data-component-name="<%= component.name %>">
+			
+					<i class="icon-remove"></i>
+
+		</div>
+		<div class="component-edit pull-right" rel="tooltip" title="edit"
+						data-id="<%= component.id %>">
+				<i class="icon-pencil"></i>
+		</div>
+	</div>
+
+	<div class="component-edit-form-container hide" id="component-form-container-<%= component.id %>"
+	 					data-id="<%= component.id %>">
+
+		<%= form_for component do |f| %>
+			<%= f.label :name %>
+			<%= f.text_field :name, 'data-id' => component.id, :class => 'component-name-field' %>
+
+			<%= f.label :description %>
+			<%= f.text_area :description, :rows => 6, 'data-id' => component.id, :class => 'component-description-field' %>
+		<% end %>
+
+		<br/>
+		<div class="pull-left status-message" id="component_status_<%= component.id %>">
+			
+		</div>
+		<div class="pull-right">
+			<a href="#" data-id="<%= component.id %>" class="btn btn-grey component-cancel">
+				Cancel
+			</a>
+			<a href="#" data-id="<%= component.id %>" class="btn btn-blue component-save"
+							data-update-url="<%= component_path(component) %>">
+				Save
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+<% end %>

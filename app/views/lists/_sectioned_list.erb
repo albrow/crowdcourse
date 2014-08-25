@@ -1,0 +1,26 @@
+<%# a general list implementation for courses, components, sections, etc. %>
+
+<%# takes an array of sections as an argument %>
+<%# also takes an argument for whether or not the sections have their own page %>
+
+<% colors ||= [:blue, :purple, :green] %>
+<% sections_have_own_page = true unless defined?(sections_have_own_page)  %>
+
+<% sections.each do |sec| %>
+
+	<% condensed_name = sec.name.downcase.gsub(" ", "_").gsub("'", "") # remove spaces and unusual chars %>
+
+	<div class="list-section-header" id="<%= condensed_name %>">
+		<% if sections_have_own_page %>
+			<h1><%= link_to sec.name, sec, :class => "link-grey" %></h1>
+		<% else %>
+			<h1><%= link_to sec.name, "##{condensed_name}", :class => "link-grey smooth-scroll" %></h1>
+		<% end %>
+	</div>
+
+	<%# children is a method on category.rb, course.rb, and section.rb %>
+	<%= render 'lists/general_list', :items => sec.children, :colors => colors %>
+
+	<% colors.unshift colors.pop #shift color order %>
+
+<% end %>

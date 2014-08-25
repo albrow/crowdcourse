@@ -1,0 +1,42 @@
+<%= provide(:title, 'Sign In') %>
+<%= provide(:active, 'Sign In') %>
+
+<div class="grey-box devise-form-container vertical-space">
+
+  <div class="user-signin-top">
+    <h1 class="inline-block user-signin-header">Sign In</h1>
+
+    <div class="user-signin-make-account pull-right">
+      Don't have an account?&nbsp;
+      <%= link_to "Sign Up", new_user_registration_path %>
+    </div>
+  </div>
+
+  <p class="center">
+    <%= link_to user_omniauth_authorize_path(:facebook), :class => "btn btn-facebook" do %>
+      <i class="icon-facebook icon-large"></i>
+      &nbsp;Sign in with Facebook
+    <% end %>
+  </p>
+  <p class="center">
+    Or fill out the form below.
+  </p>
+  <br/>
+
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+   	<%# f.label :login %>
+    <%= f.text_field :login, :placeholder => "username or email" %>
+
+    <%# f.label :password %>
+    <%= f.password_field :password, :placeholder => "password" %>
+
+    <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me, :checked => 'checked' %> <%= f.label :remember_me, :style => "display:inline"%>
+    <% end -%>
+
+    <%= f.submit "Sign In", :class => "btn btn-large btn-blue pull-right"%>
+  <% end %>
+
+  <%= render :partial => "devise/shared/links" %>
+
+</div>

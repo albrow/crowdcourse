@@ -1,0 +1,20 @@
+<%# Should be passed a local variable crumbs, which is an array %>
+<%# Each item in the array (each crumb) should have the form crumb = { :path => object.path, :name => object.name } %>
+
+<% if defined?(crumbs) && !crumbs.empty? %>
+	<ul class="breadcrumb">
+	<% crumbs.each do |crumb| %>
+
+		<% if crumb != crumbs.last %>
+			<li>
+				<%= link_to crumb[:name], crumb[:path] %>
+				<span class="divider">/</span>
+			</li>
+		<% else %>
+			<%# the last crumb is the only one that isn't a link. It also lacks a divider. %>
+			<li class="active"><%= crumb[:name] %></li>
+		<% end %>
+	
+	<% end %>
+	</ul>
+<% end %>

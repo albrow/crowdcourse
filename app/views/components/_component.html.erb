@@ -1,0 +1,10 @@
+<% accent_color ||= :blue %>
+
+<div class="component-item grey-box span6 <%= accent_color %>-accent">
+	<h3><%= link_to component.name, component %></h3>
+	<div class="component-description">
+		<%= truncate component.description, :length => 150 %>
+		<nobr><%= link_to "See More", component %></nobr>
+	</div>
+	<div class="component-video-count"><%= pluralize(component.videos.where("visible = 't'").count, "video") %></div>
+</div>

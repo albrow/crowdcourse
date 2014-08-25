@@ -1,0 +1,27 @@
+development:
+  bucket: crowdcourse-development
+  access_key_id: (Redacted for security)
+  secret_access_key: (Redacted for security)
+  max_file_size: 1073741824
+  acl: public-read
+
+test:
+  bucket: alex-test-upload
+  access_key_id: (Redacted for security)
+  secret_access_key: (Redacted for security)
+  max_file_size: 1073741824
+  acl: public-read
+
+staging:
+  bucket: crowdcourse-staging
+  access_key_id: (Redacted for security)
+  secret_access_key: (Redacted for security)
+  max_file_size: 1073741824
+  acl: public-read
+
+production:
+  bucket: crowdcourse-production
+  access_key_id: (Redacted for security)
+  secret_access_key: (Redacted for security)
+  max_file_size: 1073741824
+  acl: public-read

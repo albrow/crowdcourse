@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title><%= full_title(yield(:title)) %></title>
+		<%= stylesheet_link_tag    "application", media: "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<%= render 'layouts/shim' %>   
+		<% if Rails.env.production? %>
+			<%= render 'shared/google_analytics' %>
+		<% end %> 
+
+		<%# for asciiMath rendering (nifty!) %>
+		<%# the following removes the mathjax status from the bottom left %>
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+		    messageStyle: "none",
+		    "HTML-CSS": {
+			    scale: 90
+			  }
+		  });
+		</script>
+		<script type="text/javascript"
+		  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full">
+		</script>
+
+	</head>
+	<body>
+	<div id="top" name="top"></div> <!-- For linking to top of page -->
+		
+		<!--[if !IE 7] >
+			<style type="text/css">
+				.wrap {display:table;height:100%}
+			</style>
+		<![endif]-->
+
+		<div class="wrap">
+			<div class="main">
+
+				<%= render 'layouts/header' %>
+
+				<div class="container">
+					<% flash.each do |key, value| %>
+		        <div class="alert alert-<%= key %>">
+		        	<button class="close" data-dismiss="alert">&times;</button>
+		        	<strong><%= value %></strong>
+		        </div>
+		      <% end %>
+					<%= yield %>
+				</div>
+				
+				<%= link_to "#top", :class => "top-link smooth-scroll" do %>
+					<div class="center">
+						<span class="top-link-icon"><i class="icon-arrow-up"></i></span><br/>
+						<span class="top-link-text">TOP</span>
+					</div>
+				<% end %>
+
+			</div>
+		</div>
+
+		<%= render 'layouts/footer' %>
+
+		<%# This modal is invisible until Sign In is pressed (or some other action prompts it) %>
+		<%= render "users/signin_modal" %>
+
+	</body>
+</html>

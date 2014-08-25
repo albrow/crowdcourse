@@ -1,0 +1,31 @@
+<% provide(:title, "Settings for #{@course.name}") %>
+
+<div class="row">
+	
+	<%= render 'courses/settings_nav', :active => :maintainers %>
+
+	<div class="span8 grey-box">
+		<h2>Maintainers</h2>
+		<%= render 'lists/inline_list', :items => @course.maintainers, 
+											:prioritized => false, :bg_color => :white %>
+
+		<hr/>
+
+		<%= form_tag add_maintainer_path do %>
+			
+			<p>
+				To add another maintainer, start typing a username in the field below.
+			</p>
+
+			<%= hidden_field_tag :course_id, @course.id  %>
+
+			<%= text_field_tag :username, "", 
+						'data-provide' => 'typeahead', 'data-source' => @usernames,
+						:class => "span6 inline" %>
+
+			<%= submit_tag "Add", :class => "btn btn-large btn-blue",
+					:confirm => "Are you sure you want to make this user a maintainer? (Cannot undo)." %>
+
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<% provide(:title, 'Contact') %>
+
+<div class="hero-unit contact-content">
+	<h1>Contact</h1>
+	<p>
+		We'd love to hear what you have to say, whether it's suggestions, bug reports, or just appreciation.
+		You can contact us at any of the following email addresses, depending on the nature of your message:
+	</p>
+
+	<p>
+		<ul>
+			<li>
+				For feedback or course suggestions: <%= mail_to "feedback@crowdcourse.com" %>
+			</li>
+			<li>
+				For technical support or bug reports: <%= mail_to "support@crowdcourse.com" %>
+			</li>
+			<li>
+				For legal concerns or questions about our policies: <%= mail_to "legal@crowdcourse.com" %>
+			</li>
+			<li>
+				For all other purposes: <%= mail_to "contact@crowdcourse.com" %>
+			</li>
+		</ul>
+	</p>
+
+</div>

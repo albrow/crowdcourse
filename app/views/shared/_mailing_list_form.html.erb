@@ -1,0 +1,12 @@
+<div class="mailing-list-form-outter">
+	<div class="mailing-list-form">
+		<span class="mailing-list-tag">
+			Sign up for our Mailing List
+		</span>
+		<%= form_for @mailing_list_member, :remote => true do |f| %>
+		<%= f.email_field :email, :placeholder => "your email address", :class => "mailing-list-input" %>
+		<%= f.submit :value => "Submit", :class => "btn btn-large mailing-list-button" %>
+		<% end %>
+	</div>
+	&nbsp;
+</div>

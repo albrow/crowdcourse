@@ -1,0 +1,67 @@
+<% quiz ||= @quiz %>
+<% active ||= nil %>
+<div class="span4 grey-box">
+	
+	<h2>Questions</h2>
+
+	<hr/>
+	
+	<h3>Field Questions</h3>
+	<div class="holder">
+		<div class="row-fluid top-space">
+			<div class="span12">
+				
+				<ul class="nav nav-pills nav-stacked colored-nav">
+					<% quiz.field_questions.by_date.each_with_index do |quest, index| %>
+						<li <%= "class='active'" if active == quest %> >
+							<% if quest.field_question? %>
+								<%= link_to edit_field_question_path(quest.id) do %>
+									<%= index+1 %>. <%= quest.shortened_name %>
+								<% end %>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="vertical-space">
+		<%= link_to new_field_question_path(:quiz_id => quiz.id), :class => "btn btn-green" do %>
+			<i class="icon-plus"></i>
+			add field question
+		<% end %>
+	</div>
+
+	<hr/>
+
+	<h3>Multiple Choice Questions</h3>
+	<div class="holder">
+		<div class="row-fluid top-space">
+			<div class="span12">
+				
+				<ul class="nav nav-pills nav-stacked colored-nav colored-nav-blue">
+					<% quiz.choice_questions.by_date.each_with_index do |quest, index| %>
+						<li <%= "class='active'" if active == quest %> >
+							<% if quest.choice_question? %>
+								<%= link_to edit_choice_question_path(quest.id) do %>
+									<%= index+1 %>. <%= quest.shortened_name %>
+								<% end %>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="vertical-space">
+		<%= link_to new_choice_question_path(:quiz_id => quiz.id), :class => "btn btn-green" do %>
+			<i class="icon-plus"></i>
+			add multiple choice question
+		<% end %>
+	</div>
+
+</div>

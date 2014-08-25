@@ -1,0 +1,23 @@
+// Active Admin CSS Styles
+@import "active_admin/mixins";
+@import "active_admin/base";
+
+// To customize the Active Admin interfaces, add your
+// styles here:
+.stats {
+	line-height: 20px;
+}
+
+a, a:link, a:visited {
+  color: saturate(#38678b, 30%);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.has_many {
+	margin-bottom: 60px;
+	margin-left: 10px;
+}

@@ -1,0 +1,29 @@
+<%# 
+	
+	This partial requires two arguments- 
+	activity = the activity object 
+	size = the size (applied as a css class, default = medium)
+
+	%>
+
+<% data = activity.decoded_data %>
+<% quiz_id = data["quiz_id"] %>
+<% quiz = Quiz.find_by_id(quiz_id) %>
+<% score = data["score"] %>
+<% points = data["points"] %>
+
+<% if !quiz.nil? %>
+	<div class="activity-item activity-item-<%= size %>">
+		<% if points > 0 %>
+			<span class="activity-points plus">
+				<strong>+</strong><%= pluralize points, "point" %>
+			</span>
+			<%= "<br/>".html_safe if size == :small %>
+		<% end %>
+		Took quiz for <%= link_to quiz.component.name, quiz %> and scored a <%= score %>%.
+		<br/>
+		<span class="activity-item-time">
+			<%= time_ago_in_words activity.created_at %> ago
+		</span>
+	</div>
+<% end %>

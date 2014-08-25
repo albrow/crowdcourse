@@ -1,0 +1,38 @@
+<!-- Modal View (hidden until button is pressed) -->
+<div class="modal hide fade" id="signin-modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h2>Please Sign In</h2>
+  </div>
+
+  <div class="modal-body">
+
+		<p class="center">
+	    <%= link_to user_omniauth_authorize_path(:facebook), :class => "btn btn-facebook" do %>
+	      <i class="icon-facebook icon-large"></i>
+	      &nbsp;Sign in with Facebook
+	    <% end %>
+	  </p>
+	  <br/>
+
+    <%= form_for :user, :url => user_session_path do |f| %>
+
+		  <%= f.text_field :login, :placeholder => "email or username" %>
+
+		  <%= f.password_field :password, :placeholder => "password" %>
+
+		  Don't have an account yet?
+		  <%= link_to "Sign Up", new_user_registration_path %>
+		 
+		 	<span class="pull-right">
+				 <%= f.check_box :remember_me, :checked => 'checked' %> <%= f.label :remember_me, :style => "display:inline"%>
+		  </span>
+		  <br/>
+
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn btn-large" data-dismiss="modal">Cancel</a>
+	    	<%= f.submit "Sign In", :class => "btn btn-large btn-blue"%>
+			<% end %>
+	  </div>
+</div>

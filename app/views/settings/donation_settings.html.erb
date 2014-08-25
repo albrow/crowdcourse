@@ -1,0 +1,55 @@
+<%= provide(:title, 'Donations Settings') %>
+
+<!-- This view may or may not be used in the settings menu... -->
+
+<div class="row">
+
+  <%= render 'settings/settings_nav', :active => :donation %>
+
+  <div class="span9 grey-box">
+    <h2>Donations</h2>
+    <br/>
+    
+    <h3>Coming Soon!</h3>
+
+    <p class="medium">
+      Soon, you will have the option to accept donations. These donations will
+      go straight to you and CrowdCourse will not take a cut. This is only available
+      for users who have submitted original content.
+    </p>
+
+    <%#  
+    <p class="medium">
+      If you've contributed original content to CrowdCourse, you will be able to 
+      accept donations. Users will be able to click a donate button on your profile
+      and choose the amount they wish to donate. CrowdCourse does not take a cut, and
+      100% of the proceeds go dircetly to you (minus paypal fees, if applicable).
+    </p>
+    <p class="medium">
+      <strong>If the contributed content is copyrighted or licensed, you must ensure
+      that the acceptance of donations does not violate the copyright or lisence terms.
+      </strong>
+    </p>
+    <p class="medium">
+      Check the box
+      below if you want to accept donations.
+    </p>
+    <br/>
+    %>
+    
+    <%# form_for @user, :url => update_user_donation_settings_path do |f| %>
+      
+      <%# <p class="medium left-space"> %>
+
+        <%# f.check_box :accept_donations, :value => @user.accept_donations? %>
+        <%# f.label :accept_donations, :class => "inline" %>
+       <%#  <br/><br/>
+      </p> %>
+
+      <%# f.submit "Update Settings", :class => "btn btn-blue btn-large" %>
+    <%# end %>
+
+    
+
+  </div>
+</div>

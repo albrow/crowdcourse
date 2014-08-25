@@ -1,0 +1,8 @@
+<% placeholder ||= "Search courses, categories, lessons and users" %>
+
+<div class="global-search-form-container">
+	<%= form_for :search, :url => "/search" do |f| %>
+		<%= f.text_field :query, :placeholder => placeholder, :class => "global-search-input" %>
+		<%= f.submit "Go", :class => "btn btn-large", :name => nil %>
+	<% end %>
+</div>

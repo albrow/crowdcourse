@@ -1,0 +1,28 @@
+<%# 
+	
+	This partial requires two arguments- 
+	activity = the activity object 
+	size = the size (applied as a css class, default = medium)
+
+	%>
+
+<% video_id = activity.decoded_data["video_id"] %>
+<% first_time = activity.decoded_data["first_time"] %>
+<% video = Video.find_by_id(video_id) %>
+
+<% if !video.nil? %>
+	<div class="activity-item activity-item-<%= size %>">
+		<% if first_time %>
+			<span class="activity-points plus">
+				<strong>+</strong>3 points
+			</span>
+			<%= "<br/>".html_safe if size == :small %>
+		<% end %>
+		Watched <%= link_to video.component.name, video %> video
+		by <%= link_to video.creator.username, video.creator %>
+		<%= first_time ? "for the first time" : "" %>.<br/>
+		<span class="activity-item-time">
+			<%= time_ago_in_words activity.created_at %> ago
+		</span>
+	</div>
+<% end %>

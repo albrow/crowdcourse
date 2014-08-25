@@ -1,0 +1,26 @@
+Tue, 05 Jun 2012 11:23:31 -0400
+doc/README_FOR_APP	Mon, 28 May 2012 17:47:27 -0400
+app/controllers/application_controller.rb	Wed, 30 May 2012 15:31:40 -0400
+app/controllers/dynamic_pages_controller.rb	Wed, 30 May 2012 17:19:15 -0400
+app/controllers/sessions_controller.rb	Wed, 30 May 2012 14:38:47 -0400
+app/controllers/static_pages_controller.rb	Wed, 30 May 2012 16:39:36 -0400
+app/controllers/users_controller.rb	Thu, 31 May 2012 14:08:49 -0400
+app/helpers/application_helper.rb	Wed, 30 May 2012 17:13:46 -0400
+app/helpers/dynamic_pages_helper.rb	Wed, 30 May 2012 16:18:38 -0400
+app/helpers/sessions_helper.rb	Wed, 30 May 2012 16:29:11 -0400
+app/helpers/static_pages_helper.rb	Mon, 28 May 2012 17:54:46 -0400
+app/helpers/users_helper.rb	Wed, 30 May 2012 10:57:19 -0400
+app/models/badge.rb	Sat, 02 Jun 2012 11:59:49 -0400
+app/models/category.rb	Thu, 31 May 2012 15:40:21 -0400
+app/models/choice_question.rb	Sat, 02 Jun 2012 12:53:24 -0400
+app/models/comment.rb	Sat, 02 Jun 2012 12:45:34 -0400
+app/models/component.rb	Thu, 31 May 2012 15:28:26 -0400
+app/models/course.rb	Thu, 31 May 2012 15:58:17 -0400
+app/models/field_question.rb	Sat, 02 Jun 2012 12:46:38 -0400
+app/models/quiz.rb	Sat, 02 Jun 2012 12:43:03 -0400
+app/models/quiz_choice.rb	Sat, 02 Jun 2012 12:57:47 -0400
+app/models/quiz_score.rb	Thu, 31 May 2012 15:01:08 -0400
+app/models/user.rb	Sat, 02 Jun 2012 13:05:51 -0400
+app/models/video.rb	Sat, 02 Jun 2012 13:06:18 -0400
+app/models/video_rating.rb	Tue, 05 Jun 2012 10:18:41 -0400
+app/models/video_view.rb	Sat, 02 Jun 2012 12:45:34 -0400

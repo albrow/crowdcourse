@@ -1,0 +1,27 @@
+<!-- Modal View (hidden until button is pressed) -->
+<div class="modal hide fade" id="embed-modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h2>Embed Video</h2>
+  </div>
+
+  <div class="modal-body">
+
+    <p>
+      You can embed a video by providing a url from either YouTube or
+      Vimeo. Make sure your url starts with <em>"http://"</em>
+    </p>
+    <br/>
+
+    <%= form_for :video, :url => '/videos/create_from_url' do |f| %>
+
+      <%= f.hidden_field :component_id, :value => @component.id %>
+      <%= f.text_field :embed_url, :placeholder => "enter a url here" %>
+
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="btn btn-large" data-dismiss="modal">Cancel</a>
+        <%= f.submit "Add Video", :class => "btn btn-large btn-blue"%>
+      <% end %>
+    </div>
+</div>

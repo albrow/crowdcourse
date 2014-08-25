@@ -1,0 +1,24 @@
+<div class="markup-test-container">
+	<div class="markup-text-area">
+		<textarea class="markup-text" rows="8" placeholder="Enter some math stuff in between two backticks ( ` ) and click render."></textarea>
+		<button class="btn btn-large" id="render-button">Render</button>
+		<button class="btn btn-large" id="example-button">Show Example</button>
+	</div>
+	<div class="markup-result">
+		Results will show up here.
+	</div>
+
+	<script>
+			$("#render-button").click(function() {
+				$(".markup-result").html($(".markup-text").val());
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+			})
+
+			$("#example-button").click(function() {
+				$(".markup-text").val("`x = (-b +- sqrt(b^2 - 4ac)) / (2a)`");
+				$(".markup-result").html($(".markup-text").val());
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+			})
+	</script>
+	<div class="clear"></div>
+</div>

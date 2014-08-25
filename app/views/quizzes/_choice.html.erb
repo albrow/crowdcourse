@@ -1,0 +1,14 @@
+<%# The color of the choice:hover is different for each choice %>
+
+<% if choice.id % 4 == 0 %>
+	<div class="choice-container purple" value="<%= choice.content %>">
+<% elsif choice.id % 4 == 1 %>
+	<div class="choice-container grey" value="<%= choice.content %>">
+<% elsif choice.id % 4 == 2 %>
+	<div class="choice-container blue" value="<%= choice.content %>">
+<% else %>
+	<div class="choice-container green" value="<%= choice.content %>">
+<% end %>
+
+	<%= choice.content %>
+</div>

@@ -1,0 +1,821 @@
+<% provide(:title, 'News') %>
+<% provide(:active, 'News') %>
+
+<div class="row">
+	<div class="grey-box span12 vertical-space-more news-header">
+		<h1>News & Announcements</h1>
+		<br/>
+		<p style="font-size: 18px; line-height: 28px;">
+			We only update this page with big announcements (less frequently). For cutting-edge
+			<br/>
+			updates and exclusive sneak peeks, you can &nbsp;
+			<%= link_to "http://facebook.com/crowdcourse", :class => "btn btn-facebook" do %>
+	      Follow us on Facebook
+			<% end %>
+			
+		</p>
+		<br/>
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="grey-box span12 more-padding news-container bottom-space-more">
+		<h1>August 26, 2012</h1>
+		<br/>
+		<h1>CrowdCourse is Back.</h1>
+		<h2 class="lighter">And better than ever!</h2>
+		<br/>
+		<p>
+			Early this month, we had to take the site down because we didn't have enough money to keep it running.
+			Since then, we've been focusing all of our efforts on making it better. We are happy to announce that
+			today, <strong>we're back!</strong>
+		</p>
+		<p>
+			There are <strong>a lot of new features</strong> on the site, and they mostly have to do with
+			making it easier than ever to contribute. We listened to your feedback and took it to heart.
+			Here's what we've come up with...
+		</p>
+
+		<br/>
+
+		<p>
+			<h2>You can create new Courses!</h2>
+		</p>
+
+		<p>
+			That's right. <strong>Now anyone can create a course.</strong> We've even built a nifty syllabus editor with 
+			drag-and-drop controls to make it as easy as possible to manage lessons. As soon as you create a course,
+			you'll become the official course maintainer. Maintainers are responsible for organizing the course and
+			moderating any user-submitted content. (You can also add other maintainers to help).
+		</p>
+		<p>
+			Got an idea for a course? Click the button below to get started...
+		</p>
+
+		<br/>
+
+		<div class="center">
+			<%= link_to new_course_path, :class => "btn btn-large btn-blue" do %>
+				<i class="icon-plus"></i>
+				&nbsp;
+				Start a Course
+			<% end %>
+		</div>
+
+		<br/>
+		<br/>		
+
+		<p>
+			<h2>You can create and edit Quizzes!</h2>	
+		</p>
+
+		<p>
+			What good would creating your own courses be if you couldn't make the quizzes to go along with them?
+			Some courses are set up so that anyone can create or edit a quiz for a given lesson. Want to try it 
+			out? Check out our <%= link_to "Numerical Methods", "courses/2" %> course, find a lesson that needs
+			a quiz, and go for it!
+		</p>
+
+		<br/>
+
+		<p>
+			<h2>An easier way to Add Videos!</h2>	
+		</p>
+
+		<p>
+			We know. Creating a video from scratch is hard to do. You have to get a camera, record a video,
+			edit it on your computer, and then upload it. That's why we decided to lower the barrier to entry
+			for potential contributors and provide a much easier alternative.
+		</p>
+
+		<p>
+			You can now <strong>embed videos straight from YouTube or Vimeo</strong>. Here's how it works:
+		</p>
+		<div class="left-space">
+			<ol>
+				<li>
+					Find a lesson that needs a video (or create your own lesson)
+				</li>
+				<li>
+					Search YouTube or Vimeo for a relevant video
+				</li>
+				<li>
+					Choose the "Embed" option, and copy and paste the url for the video
+				</li>
+			</ol>
+		</div>
+		<p>
+			That's it! Now anyone on CrowdCourse can learn from the video you added. You can even add
+			more than one video to a lesson, and our rating system will determine the best video based
+			on user ratings and average quiz scores. Looking for some lessons that need videos? Check 
+			out our <%= link_to "Introductory Calculus", "courses/1" %> course.
+		</p>
+
+		<br/>
+
+		<p>
+			<h2>A redesigned Lessons Interface!</h2>
+		</p>
+
+		<p>
+			We completely redesigned the lessons interface so that you can learn faster and navigate
+			courses with ease. Each lesson page automatically displays the top-rated video and lists
+			any other videos for the lesson. There are navigation buttons for moving to the next or
+			previous lesson and taking the quiz for the lesson. Want to see what it looks like?
+			<%= link_to "See a sample Lesson", 'components/17' %>
+		</p>
+
+		<br/>
+		
+		<p>
+			<h2>Our Vision</h2>
+		</p>
+
+		<p>
+			Our goal is to create a free, collaborative online learning community. The driving force behind
+			CrowdCourse is the idea of collective contribution. For example, one person can start a lesson,
+			another person can add a video, and someone else can create the quiz. The more people that contribute,
+			the better the content, and the wider variety of subjects we can offer.
+		</p>
+
+		<p>
+			CrowdCourse is one of a kind. It is better than YouTube because it offers better organization
+			and quizzes for each lesson, so you can get immediate feedback. It is better than traditional
+			online education sites because it offers the opportunity for community contributions. 
+			By crowd-sourcing our content, we can cover more subjects and have a wider variety of videos
+			and quiz questions to offer potential learners. 
+		</p>
+
+		<br/>
+
+		<p>
+			<h2>I can't do this Alone</h2>
+		</p>
+
+		<p>
+			CrowdCourse has become a huge project, and it's taken a lot of time, money, and effort. I can no
+			longer continue to do this without help. For the entire month of November, I will be looking for help
+			in two different ways.
+		</p>
+		<p> 
+			First, I'll be launching a funding campaign to try and raise enough money
+			to keep CrowdCourse running for one year. The site cannot exist if I can't afford to keep it online,
+			and I don't want what happened earlier this month to happen again. I'll be announcing the details of
+			the campaign soon.
+		</p>
+		<p>
+			Second, I'll be actively looking for partners to share the responsibility of development
+			and moderating site content. If you are interested in helping or you would like to find out more, please 
+			contact me: <%= mail_to "alex@crowdcourse.com" %>
+		</p>
+
+		<br/>
+		<br/>
+
+		<p>
+			Don't forget to <%= link_to "follow us on facebook", "http://facebook.com/crowdcourse" %>
+			for more frequent updates and exclusive sneak peeks!
+		</p>
+		
+		<br/>
+		<hr/>
+
+		<br/>
+
+		<p>
+			As always, here's the technical changelog and to do list...
+		</p>
+		<br/>
+
+		<h3>Recent Changes</h3>
+		<p>
+			<ul>
+				<li>
+					Added ability to <%= link_to "create and edit courses", new_course_path %>
+				</li>
+				<li>
+					Added maintainers to courses
+				</li>
+				<li>
+					Added ability to create and edit quizzes
+				</li>
+				<li>
+					Redesigned <%= link_to "lesson interface", "components/17" %>
+				</li>
+				<li>
+					Added <%= link_to "account settings", edit_user_registration_path %>
+					so you can change email, password, name, etc.
+				</li>
+				<li>
+					Added <%= link_to "privacy settings", privacy_settings_path %>
+					so you can control what other users see on your profile
+				</li>
+				<li>
+					Redesigned <%= link_to "home page", home_path %> for signed in users
+				</li>
+				<li>
+					Fixed a bug with email confirmation emails
+				</li>
+				<li>
+					Fixed a bug with facebook sign-up/sign-in
+				</li>
+				<li>
+					Upgraded MathJax to version 2.1
+				</li>
+				<li>
+					Added an activity and 50 points for signing up
+				</li>
+				<li>
+					Added an activity and 3 points for rating a video
+				</li>
+				<li>
+					Switched to unicorn server for 10x better concurrency (faster load times for lots of users accessing site at the same time)
+				</li>
+				<li>
+					Moved most images and video thumbnails to CloudFront cdn for faster load times
+				</li>
+				<li>
+					Added a lot of icons to buttons
+				</li>
+				<li>
+					More efficient background jobs
+				</li>
+				<li>
+					Other minor changes
+				</li>
+			</ul>
+		</p>
+		<br/>
+
+		<h3>To Do List</h3>
+		<p>
+			<ul>
+				<li>
+					Start fundraising campaign
+				</li>
+				<li>
+					Add help videos and tutorials showing how to use CrowdCourse
+				</li>
+				<li>
+					Finish implementing donate button (almost done, but there's some legal stuff to work out)
+				</li>
+				<li>
+					Give more control to course maintainers, including the ability to create private courses
+				</li>
+				<li>
+					Allow users to add notes to the videos they upload
+				</li>
+				<li>
+					Implement flagging system for videos, quizzes, and comments
+				</li>
+				<li>
+					Implement badge system
+				</li>
+				<li>
+					Much, much more!
+				</li>
+			</ul>
+		</p>
+
+		<br/>
+		<p>
+			Got some feature suggestions? <%= link_to "Let us know", contact_path %>
+		</p>
+	</div>
+		
+		
+	<div class="grey-box span12 more-padding news-container bottom-space-more">
+		<h1>September 23, 2012</h1>
+		<br/>
+		<h2>NeoTeach is now officially CrowdCourse!</h2>
+		<p>
+			I just finished re-naming and re-branding everything. All account information and data has been transferred over. Visitors who try to access the old site will automatically be redirected.
+		</p>
+		<br/>
+		<br/>
+		<div class="center">
+			<%= image_tag "http://dl9f4gn4hf44p.cloudfront.net/images/newlogo.png" %>
+		</div>
+		<br/>
+		<br/>
+		<p>
+			<h2>More news coming soon!</h2>
+		</p>
+		
+	</div>
+
+
+	<div class="grey-box span12 more-padding news-container bottom-space-more">
+		<h1>September 12, 2012</h1>
+		<br/>
+		<p>
+			It's been a while. Now that school has started back up again, I won't be able to make updates as frequently as I used to.
+			Nevertheless, I have some big things to announce today! If you've been following us on facebook, you've already heard
+			some of this news.
+		</p>
+		<br/>
+		<p>
+			<h2>Some New Features!</h2>
+		</p>
+
+		<p>
+			I've added <strong>one-click facebook login</strong>. Now instead of signing up with a username, email, and password,
+			you can just sign up in one easy step. For those of you who don't have a facebook or prefer not to use it for sign up,
+			the traditional sign up/sign in is still an option. <strong>If you haven't already, you can sign up below...</strong>
+		</p>
+	
+		<br/>
+
+		<p class="center">
+			<%= link_to user_omniauth_authorize_path(:facebook), :class => "btn btn-large btn-facebook" do %>
+	      <i class="icon-facebook icon-large"></i>
+	      &nbsp;&nbsp;Sign Up with Facebook
+			<% end %>
+		</p>
+		
+		<br/>
+
+		<p>
+			<strong>Videos are now rate-able!</strong> I've implemented a five-star rating system, and you need
+			to be signed in to rate them. Check out our <%= link_to "updated list of videos", videos_path %>
+			and start rating!
+		</p>
+
+		<br/>
+
+		<p>
+			I've <strong>completely redesigned</strong> the <%= link_to "landing page", landing_path %> and
+			<%= link_to "about page", about_path %>. They feature more graphics, including screenshots and vector
+			icons with font-awesome.
+		</p>
+
+		<br/>
+
+		<p>
+			<h2>Our Second Course</h2>
+		</p>
+
+		<p>
+			Construction of our <strong>second course</strong> is officially underway! It's a Numerical Methods course,
+			and you can see a <%= link_to "sneak peek here", "courses/2" %>. A lot of the content for the course, including
+			videos and quiz questions, is being borrowed (with permission) from the University of South Florida.
+		</p>
+
+		<br/>
+
+		<p>
+			<h2>The Future of the Project</h2>
+		</p>
+
+		<p>
+			<strong>I'm changing the name to CrowdCourse</strong>. There are a lot of reasons for this change:
+			<ul>
+				<li>
+					With the old name (NeoTeach), people consistently had a wrong first impression of what the site was
+					all about. The name CrowdCourse is a little less ambiguous.
+
+				<li>
+					I like the way the new name sounds and I like its connotation. A quick survey showed that most people
+					agreed.
+
+				<li>
+					With the other changes I'm making in the project, it's become a necessity to separate the name of the
+					website from the name of the over-arching company and any other products I might push out in the future.
+
+			</ul>
+		</p>
+
+		<p>
+			In the coming days, I'm going to start transitioning over to the new domain at crowdcourse.com. I will also
+			be changing every occurrence of the name NeoTeach to CrowdCourse. It's going to be a long process, but the transition will
+			be complete within a week or two.
+		</p>
+
+		<br/>
+
+		<p>
+			In an attempt to bootstrap the project and give it the push it needs, <strong>I'm going to start borrowing content
+			from Creative Commons sources</strong>. The material on our <%= link_to "Numerical Methods course", "courses/2" %>
+			is only the beginning. There is a lot more great, free content coming soon! I hope that this will encourage
+			students to use the site, and in turn, will encourage more people to contribute to our community.
+		</p>
+
+		<br/>
+
+		<p>
+			As a consequence of the Creative Commons license (at least most versions of it), our site is officially going
+			<strong>non-commercial</strong>. That's right! For the foreseeable future, NeoTeach/CrowdCourse will be 
+			<strong>absolutely free!</strong> However, the site still costs money to keep online (not much, but more than 
+			a broke college student such as myself can afford). I'm looking into a few different options to keep sustaining
+			the site. I may create a <%= link_to "Kickstarter", "http://www.kickstarter.com/" %> for the project.
+			I am also looking into adapting the software and selling a platform to schools and businesses.
+		</p>
+
+		<br/>
+
+		<p>
+			Don't forget to <%= link_to "follow us on facebook", "http://facebook.com/crowdcourse" %>
+			for more frequent updates and exclusive sneak peeks!
+		</p>
+
+		<br/>
+
+		<p>
+			Here's the technical changelog and to do list...
+		</p>
+		<br/>
+
+		<h3>Recent Changes</h3>
+		<p>
+			<ul>
+				<li>
+					Implemented facebook authentication
+				</li>
+				<li>
+					Implemented a five-star rating system for videos
+				</li>
+				<li>
+					Redesigned <%= link_to "about page", about_path %>
+				</li>
+				<li>
+					Redesigned <%= link_to "landing page", landing_path %>
+				</li>
+				<li>
+					Replaced Pictos with <%= link_to "Font-Awesome", "http://fortawesome.github.com/Font-Awesome/" %>, 
+					a free vectorized icon solution
+				</li>
+				<li>
+					Changed header design (it now uses grey indented pills instead of purple ones)
+				</li>
+				<li>
+					Signing in now redirects to previous page instead of home page
+				</li>
+				<li>
+					Fixed bug in activity data serialization
+				</li>
+				<li>
+					Course descriptions now can accept (and parse) html
+				</li>
+				<li>
+					Added facebook like button and facebook links to various pages
+				</li>
+			</ul>
+		</p>
+		<br/>
+
+		<h3>To Do List</h3>
+		<p>
+			<ul>
+				<li>
+					Add a donate button so users can show appreciation to our contributors
+				</li>
+				<li>
+					Allow users to submit quiz questions
+				</li>
+				<li>
+					Allow users to create new courses and submit changes to existing ones
+				</li>
+				<li>
+					Add more things to activities and points
+				</li>
+				<li>
+					Allow users to add notes to the videos they upload
+				</li>
+				<li>
+					Implement user settings
+				</li>
+				<li>
+					Implement flagging system for videos, quizzes, and comments
+				</li>
+				<li>
+					Implement badge system
+				</li>
+				<li>
+					Much, much more!
+				</li>
+			</ul>
+		</p>
+
+		<br/>
+		<p>
+			Got some feature suggestions? <%= link_to "Let us know", contact_path %>
+		</p>
+	</div>
+
+
+
+		<div class="grey-box span12 more-padding news-container bottom-space-more">
+		<h1>August 1, 2012</h1>
+		<br/>
+		<p>
+			<h3>Today, I'm pleased to announce new content and tons of exciting new features!</h3>
+		</p>
+		<br/>
+		<p>
+			Let's start with a small one. I've added a cool <strong>smooth scrolling animation</strong> for internal links, as well as a "back to top" button that automatically shows up on the right hand side of the screen. You can test it out by 
+			<%= link_to "clicking this link", "#scroll-test-bottom", :class => "smooth-scroll" %>.
+		</p>
+		<br/>
+		<p>
+			Next, I <strong>added support for</strong> a markup language called <strong>AsciiMath</strong>. Basically, it takes regular old text and converts it into nice-and-pretty-formatted math equations. To enable the fancy markup in comments or anywhere else on the site, all you have to do is surround math stuff in backticks ( ` ). Hint: the backtick key is in the top left corner of your keyboard.
+		</p>
+
+		<p>
+			The markup is natural and intuitive; it just works like you would expect it to. For example, to render `x^2` all you have to do is type <code>`x^2`</code>. Or, to render something like `sqrt(pi)`, you can just type <code>`sqrt(pi)`</code>.
+		</p>
+
+		<br/>
+		<p>
+			Try it yourself. It's easy!
+			<br/>
+				<%= render 'static_pages/math_markup_test' %>
+			<br/>
+		</p>
+		<br/>
+
+		<p>
+			If you are signed in, you can now <strong>add comments to any videos</strong>. 
+			<%= link_to "Here's an updated list", videos_path %>. I'd really love to hear feedback on my videos, so please leave a comment if you have some suggestions. Don't forget, you can also include math markup in your comments. Comments will show up in the activity feed on your profile and you earn one point for each.
+		</p>
+
+		<br/>
+
+		<p>
+			There's more! I've completely <strong>revamped the search functionality</strong>. It's been redesigned to work with natural language queries and common math expressions, so it's really easy to find what you're looking for. If you don't believe me, try searching for <code>"how the heck do you derive e^x?"</code> in the search box on the top right corner of the screen. Sure enough, the first result on the page is a lesson about deriving natural exponential functions. And what's more, search is going to keep getting better and better over time!
+		</p>
+
+		<br/>
+
+		<p>
+			And I saved the best for last. I finished implementing <strong>interactive quizzes</strong> and I've already added them to a few lessons. The quizzes are an important part of NeoTeach because they let you immediately check your understanding of the material. Since we're still in beta and the site isn't ready yet, you have to login to access the quizzes. However, I've opened up this <%= link_to "sample quiz", "/quizzes/4" %> for anyone who wants to get a sneak peek. If you're logged in, you can earn points for taking a quiz and it will show up in your activity feed on your profile.
+		</p>
+
+		<br/>
+
+		<p>
+			As always, here's a condensed list of the changes, including some I didn't mention above:
+		</p>
+		<br/>
+
+		<h3>Recent Changes</h3>
+		<p>
+			<ul>
+				<li>
+					Added smooth scrolling animation and automatic link to top using javascript.
+				</li>
+				<li>
+					Added support for a markup language called AsciiMath.
+				</li>
+				<li>
+					Vastly improved <%= link_to "search functionality", search_path %>.
+				</li>
+				<li>
+					Added a comment system to videos. (signed in users only)
+				</li>
+				<li>
+					Comments now show up on activity feed. You earn one point for each comment, but lose a point for deleting one.
+				</li>
+				<li>
+					Added quizzes for a few lessons. More coming soon!
+				</li>
+				<li>
+					Taking a quiz will earn you points and show up in your activity feed.
+				</li>
+				<li>
+					Added two new videos. I also switched to multi-colored sharpies and a better camera. Many more are on the way!
+				</li>
+				<li>
+					Added support for vectorized picticons. (the top link is the only thing that uses it now).
+				</li>
+				<li>
+					Thumbnails now load from my own cdn instead of vimeo. This will help improve load times for any page with a list of videos, e.g. the main videos page or a user's profile.
+				</li>
+				<li>
+					Combined user profile and show pages into a single view template.
+				</li>
+				<li>
+					Added a temporary favicon. I'm not sure if you can tell, but it's meant to be a lightbulb.
+				</li>
+				<li>
+					Cleaned up various javascript code to make it cleaner and faster.
+				</li>
+				<li>
+					Cleaned up search results page and converted all lists to a generalized template implementation.
+				</li>
+				<li>
+					Fixed a bug in the "Your video is ready" email. The links to the videos now appear as neoteach.com/... instead of the heroku domain (neoteach.herokuapp.com/...)
+				</li>
+				<li>
+					Various small style changes.
+				</li>
+			</ul>
+		</p>
+		<br/>
+
+		<h3>To Do List</h3>
+		<p>
+			<ul>
+				<li>
+					Implement facebook authentication
+				</li>
+				<li>
+					Implement user settings
+				</li>
+				<li>
+					Allow users to add notes to the videos they upload
+				</li>
+				<li>
+					Add fancy 5-star rating system to videos
+				</li>
+				<li>
+					Implement flagging system for videos, quizzes, and comments
+				</li>
+				<li>
+					Implement badge system
+				</li>
+				<li>
+					Much, much more!
+				</li>
+			</ul>
+		</p>
+
+		<br/>
+		<p>
+			Got some feature suggestions? <%= link_to "Let us know", contact_path %>
+		</p>
+	</div>
+
+
+
+	<div class="grey-box span12 more-padding news-container bottom-space-more">
+		<h1>July 24, 2012</h1>
+		<br/>
+		<p>
+			I'm not trying to fool anyone here, so I've decided to drop this "we" nonsense and tell you honestly and truthfully that I am just one person. I've been working harder than ever to bring you some fantastic new improvements, and this time I have a lot to share. First off, the syllabus for our <%= link_to "Single Variable Calculus", "courses/1" %> course <strong>is completed</strong>! I may still make incremental changes based on user feedback. 
+		</p>
+		<br/>
+		<p>
+			What I'm most excited to announce is that <strong><u>the site has videos</u></strong>! I uploaded the first three myself, and I plan to do many more over the course of the next couple weeks. I also decided to make the videos open to the public, so you can watch them even if you don't have an account yet. I can't do this alone, and if you're interested in creating one or two videos it would help me out tremendously!
+		</p>
+
+		<div class="vertical-space-more center">
+			Ready to learn something?<br>
+			<%= link_to "Watch some Videos!", "/videos", :class => "btn btn-huge btn-blue" %>
+		</div>
+
+		<p>
+			Anyways, here are the details...
+		</p>
+		<br/>
+
+		<h3>Recent Changes</h3>
+		<p>
+			<ul>
+				<li>
+					Completely revamped the video upload process. Fixed a bug that crashed the site if you tried to upload large files (>30MB or so). Added a progress bar (with correct percentage) during upload. Redesigned the look and feel of the upload view.
+				</li>
+				<li>
+					Added a <%= link_to "Course Overview", "/courses/1" %> to the top of the course page. This makes it much easier to navigate.
+				</li>
+				<li>
+					Added sections to courses to help better organize them.
+				</li>
+				<li>
+					Redesigned <%= link_to "video thumbnails", "/videos" %> to offer more details about each video. (also prevents text from bleeding over)
+				</li>
+				<li>
+					Added detection for when a video is done playing. You can earn points for watching a video all the way through.
+				</li>
+				<li>
+					Users will now receive an email when their video is done processing and is ready to watch.
+				</li>
+				<li>
+					Videos that are still processing display a message instead of a blank screen.
+				</li>
+				<li>
+					Some minor style changes, including spacing improvements and small touch-ups.
+				</li>
+			</ul>
+		</p>
+		<br/>
+
+		<h3>To Do List</h3>
+		<p>
+			<ul>
+				<li>
+					Add more events to recent activity feed
+				</li>
+				<li>
+					Implement user settings
+				</li>
+				<li>
+					Add fancy 5-star rating system to videos
+				</li>
+				<li>
+					Add comments to videos
+				</li>
+				<li>
+					Implement flagging system for videos, quizzes, and comments
+				</li>
+				<li>
+					Implement badge system
+				</li>
+				<li>
+					Much, much more!
+				</li>
+			</ul>
+		</p>
+	</div>
+
+
+
+
+	<div class="grey-box span12 news-container more-padding bottom-space-more">
+		<h1>July 11, 2012</h1>
+		<br/>
+		<p>
+			We've added some new features to the site, and we've received great feedback and help with the structure of
+			our <%= link_to "Single Variable Calculus", "courses/1" %> lessons. The curriculum will be finalized
+			before the end of the week, at which time we'll make a huge push for content creators. As usual, here's
+			some notes about our progress on the technical side...
+		</p>
+		<br/>
+
+		<h3>Recent Changes</h3>
+		<p>
+			<ul>
+				<li>
+					Implemented <%= link_to "recent activity", profile_path %> for all users. 
+					So far, this includes anytime you watch a video, upload a video, or remove
+					a video. If you haven't done any of those things, then you won't see anything
+					on the recent activity section of your profile. We're adding more events soon.
+				</li>
+				<li>
+					Updated all <%= link_to "user stats", profile_path %>. Now, on your profile page,
+					you can see your number of points, badges earned, videos made, and more!
+				</li>
+				<li>
+					Implemented <%= link_to "universal search", search_path %>. You can search for
+					categories, courses, lessons, and users by clicking the link or by using the box
+					at the top right corner of the screen.
+				</li>
+				<li>
+					Improved existing search for courses, lessons. For example, the searches are
+					now case insensitive and involve descriptions and aliases for common search terms.
+				</li>
+				<li>
+					Added user information to the account dropdown menu. You can check it out now
+					by pressing the account button at the top of the screen.
+				</li>
+				<li>
+					Some minor style changes. For example, we changed the "beta" part of the logo
+					at the top of the page to make it easier to read.
+				</li>
+			</ul>
+		</p>
+		<br/>
+
+		<h3>To Do List</h3>
+		<p>
+			<ul>
+				<li>
+					Finalize Single Variable Calculus course curriculum (our first course!)
+				</li>
+				<li>
+					Add more events to recent activity feed
+				</li>
+				<li>
+					Implement user settings
+				</li>
+				<li>
+					Add fancy 5-star rating system to videos
+				</li>
+				<li>
+					Add comments to videos
+				</li>
+				<li>
+					Implement flagging system for videos, quizzes, and comments
+				</li>
+				<li>
+					Add fancy javascript uploader for videos
+				</li>
+				<li>
+					Implement badge system
+				</li>
+				<li>
+					Much, much more!
+				</li>
+			</ul>
+		</p>
+	</div>
+
+
+	<div class="grey-box span12 news-container more-padding" id="scroll-test-bottom">
+		<h2>Hey, how's the weather up there?</h2>
+		To get back to the top, click the button near the top right corner of the page, or 
+		<%= link_to "click here", "#top", :class => "smooth-scroll" %>.
+	</div>
+
+</div>
+

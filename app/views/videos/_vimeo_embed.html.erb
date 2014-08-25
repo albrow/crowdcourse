@@ -1,0 +1,25 @@
+<% width ||= 858 %>
+<% height = width*9/16 %>
+
+<div class="video-iframe-container" data-video-id="<%= video.id %>" data-video-source="<%= video.source %>">
+
+	<% if video.is_ready? %>
+		<iframe src="<%= video.embed_url %>?api=1&player_id=video_iframe&color=009193&portrait=0&title=0&byline=0"
+			width="<%= width %>" height="<%= height %>" frameborder='0' 
+			webkitAllowFullScreen mozallowfullscreen allowFullScreen id="video_iframe">
+		</iframe>
+	<% else %>
+		<div class="video-not-ready">
+			<p class="medium">
+				This video is still being processed by our servers. Please <br/>
+				check back later. Processing usually takes 5-20 minutes.
+			</p>
+			<br/><br/><br/>
+			<p class="medium">
+				If you are the creator of this video, we will <br/>
+				send you an email when it's ready for viewing.
+			</p>
+		</div>
+	<% end %>
+
+</div>

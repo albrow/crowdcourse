@@ -1,0 +1,50 @@
+
+<% accent_color ||= :blue %>
+<% bg_color ||= :grey %>
+<% size ||= :large %>
+<% inline ||= false %>
+
+<% if size == :large %>
+	<div class="list-item user-item <%= bg_color %>-box span6 <%= accent_color %>-accent">
+		<div class="user-result-thumbnail">
+			<%= gravatar_for(user, :small) %>
+		</div>
+		<div class="user-result-description">
+			<h3 class="inline"><%= link_to user.username, user %></h3><br/>
+			<%= truncate user.description, :length => 90 %><br/>
+			<span class="user-result-stats">
+				<%= user.points %> points &nbsp;&bull;&nbsp;
+				<%= user.videos_made.where("visible = 't'").size %> videos &nbsp;&bull;&nbsp;
+				<%= link_to "See More", user %>
+			</span>
+		</div>
+	</div>
+<% elsif size == :medium %>
+	<div class="list-item user-item <%= bg_color %>-box span6 <%= accent_color %>-accent">
+		<div class="user-result-thumbnail">
+			<%= gravatar_for(user, :small) %>
+		</div>
+		<div class="user-result-description">
+			<h3 class="inline"><%= link_to user.username, user %></h3><br/>
+			<%= truncate user.description, :length => 70 %><br/>
+			<span class="user-result-stats">
+				<%= user.points %> points &nbsp;&bull;&nbsp;
+				<%= user.videos_made.where("visible = 't'").size %> videos &nbsp;&bull;&nbsp;
+				<%= link_to "See More", user %>
+			</span>
+		</div>
+	</div>
+<% elsif size == :xsmall %>
+	<div class="user-item-xsmall <%= bg_color %>-box less-padding <%= accent_color %>-accent <%= inline ? "inline" : "" %>">
+		<%= link_to user do %>
+			<div class="pull-left">
+				<%= gravatar_for(user, :xxsmall) %>
+			</div>
+			<div class="pull-left">
+				&nbsp;
+				<h4 class="inline"><%= user.username %></h4>
+				<span class="small">(<%= user.points %>)</span>
+			</div>
+		<% end %>
+	</div>
+<% end %>

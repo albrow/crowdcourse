@@ -1,0 +1,140 @@
+
+div#file_lists {
+	margin-bottom:10px;
+}
+
+ul.file_list {
+	list-style-type: none;
+	margin-left: 0px;
+}
+
+ul.file_list li {
+	height:35px;
+	line-height:35px;
+	position:relative;
+	margin-left: 0px;
+}
+
+ul.file_list li span.file_name {
+	display:inline;
+}
+
+ul.file_list li span.file_size {
+	display:inline-block;
+	margin-left: 15px;
+	font-weight: 200;
+	font-style: italic;
+	margin-top: 10px;
+	font-size: 80%;
+}
+
+ul.file_list li span.delete {
+	display: block;
+	float: right;
+	font-size: 80%;
+	font-weight: 200;
+	color: #aaa;
+	cursor:pointer;
+	margin-top: 10px;
+}
+
+ul#file_done_list li span.progress {
+	width:100%;
+	border-right:0;
+}
+
+ul#file_todo_list li span.progress {
+	display:none;
+}
+
+#s3_swf_1 {
+	margin-top: 0px;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	display: block;
+	z-index: 1;
+	background: none;
+}
+
+#button-overlay {
+	pointer-events:none;
+	position: absolute;
+	left: 10px;
+	bottom: 15px;
+	z-index: 100;
+}
+
+.upload-submit-button-container {
+	display: block;
+	float: left;
+}
+
+#upload-progress {
+	margin-top: 20px;
+}
+
+.progress-value {
+	float: right;
+}
+
+#upload-modal>.modal-header {
+	padding: 20px;
+	background-color: #222222;
+	border-bottom-color: #222;
+	@include border-radius(6px 6px 0px 0px);
+	h2 {
+		color: $almost-white;
+		text-shadow: #000 0px 1px 0px; 
+	}
+}
+
+#upload-modal>.modal-body {
+	padding: 30px;
+	height: 165px;
+	background-color: #151515;
+	background-image: none;
+	color: $almost-white;
+	@include box-shadow(#050505 0px 0px 20px 0px inset);
+}
+
+#upload-modal {
+	background-color: transparent;
+	@include box-shadow($black 0px 2px 20px 0px);
+	border: 0px solid transparent;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-top-width: 0px;
+}
+
+#upload-modal>.modal-footer {
+	background-color: #222222;
+	border-top-color: #222;
+	border-bottom-color: #222;
+	border-color: #222;
+	border: 1px solid #222;
+	@include border-radius(0px 0px 6px 6px);
+	@include box-shadow(#222 0px 1px 0px 0px inset);
+}
+
+#upload-modal>.modal-footer>.btn-blue {
+	@include buttonBackground(lighten($blue, 5%), darken($blue, 12%));
+}
+
+#upload-modal>.modal-footer>.btn {
+	margin-left: 15px;
+}
+
+.upload-instructions {
+	p {
+		font-weight: 200;
+		font-size: 18px;
+		line-height: 24px;
+		font-color: #ccc;
+	}
+	padding-top: 45px;
+	padding-left: 40px;
+	padding-right: 40px;
+	text-align: center;
+}

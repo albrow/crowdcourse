@@ -1,0 +1,15 @@
+<%= provide(:title, 'Reset Password') %>
+
+<div class="grey-box devise-form-container vertical-space-more">
+<h2>Forgot Your Password?</h2><br/>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :login %>
+  <%= f.text_field :login %>
+
+  <%= f.submit "Send Password Reset Link", :class => "btn btn-large btn-blue" %>
+<% end %>
+
+</div>

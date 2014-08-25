@@ -1,0 +1,644 @@
+<% provide(:title, 'Style Test') %>
+<div class="hero-unit vertical-space">
+	<h1>Design Elements</h1>
+	<p>
+		Components based on <%= link_to "Bootstrap", "http://twitter.github.com/bootstrap" %> 
+				and the <%= link_to "bootstrap-sass", "https://github.com/thomas-mcdonald/bootstrap-sass" %> gem.<br/>
+		Color scheme based on Kuler's <%= link_to "Japanese Lanterns", "http://kuler.adobe.com/#themeID/1746065" %><br/>
+				<small>Designed by <%= link_to "Alex Browne", "http://alexbrowne.info" %></small>
+
+	</p>
+</div>
+
+<br/>
+
+<h1>Custom Scaffolding</h1>
+<h2>A. Grid with padding</h2>
+
+<div class="row vertical-space">
+	<div class="grey-box span12 center">
+		12
+	</div>
+</div>
+
+<div class="row vertical-space">
+	<div class="grey-box span11 center">
+		11
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+</div>
+
+<div class="row vertical-space">
+	<div class="grey-box span10 center">
+		10
+	</div>
+	<div class="grey-box span2 center">
+		2
+	</div>
+</div>
+
+<div class="row vertical-space">
+	<div class="grey-box span9 center">
+		9
+	</div>
+	<div class="grey-box span3 center">
+		3
+	</div>
+</div>
+
+<div class="row vertical-space">
+	<div class="grey-box span8 center">
+		8
+	</div>
+	<div class="grey-box span4 center">
+		4
+	</div>
+</div>
+
+<div class="row vertical-space">
+	<div class="grey-box span7 center">
+		7
+	</div>
+	<div class="grey-box span5 center">
+		5
+	</div>
+</div>
+
+<div class="row vertical-space">
+	<div class="grey-box span6 center">
+		6
+	</div>
+	<div class="grey-box span6 center">
+		6
+	</div>
+</div>
+
+<div class="row vertical-space">
+	<div class="grey-box span4 center">
+		4
+	</div>
+	<div class="grey-box span4 center">
+		4
+	</div>
+	<div class="grey-box span4 center">
+		4
+	</div>
+</div>
+
+<div class="row vertical-space">
+	<div class="grey-box span3 center">
+		3
+	</div>
+	<div class="grey-box span3 center">
+		3
+	</div>
+	<div class="grey-box span3 center">
+		3
+	</div>
+	<div class="grey-box span3 center">
+		3
+	</div>
+</div>
+
+<div class="row vertical-space">
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+	<div class="grey-box span1 center">
+		1
+	</div>
+</div>
+
+<br/>
+
+<h2>B. Nested grids with padding</h2>
+
+<div class="row">
+	<div class="vertical-space-more span12 grey-box">
+		<div class="holder">
+		
+			<div class="row-fluid vertical-space">
+				<div class="span12">
+					<div class="grey-marker">
+						12
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid vertical-space">
+				<div class="span11">
+					<div class="grey-marker">
+						11
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid vertical-space">
+				<div class="span10">
+					<div class="grey-marker">
+						10
+					</div>
+				</div>
+				<div class="span2">
+					<div class="grey-marker">
+						2
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid vertical-space">
+				<div class="span9">
+					<div class="grey-marker">
+						9
+					</div>
+				</div>
+				<div class="span3">
+					<div class="grey-marker">
+						3
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid vertical-space">
+				<div class="span8">
+					<div class="grey-marker">
+						8
+					</div>
+				</div>
+				<div class="span4">
+					<div class="grey-marker">
+						4
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid vertical-space">
+				<div class="span7">
+					<div class="grey-marker">
+						7
+					</div>
+				</div>
+				<div class="span5">
+					<div class="grey-marker">
+						5
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid vertical-space">
+				<div class="span6">
+					<div class="grey-marker">
+						6
+					</div>
+				</div>
+				<div class="span6">
+					<div class="grey-marker">
+						6
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid vertical-space">
+				<div class="span4">
+					<div class="grey-marker">
+						4
+					</div>
+				</div>
+				<div class="span4">
+					<div class="grey-marker">
+						4
+					</div>
+				</div>
+				<div class="span4">
+					<div class="grey-marker">
+						4
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid vertical-space">
+				<div class="span3">
+					<div class="grey-marker">
+						3
+					</div>
+				</div>
+				<div class="span3">
+					<div class="grey-marker">
+						3
+					</div>
+				</div>
+				<div class="span3">
+					<div class="grey-marker">
+						3
+					</div>
+				</div>
+				<div class="span3">
+					<div class="grey-marker">
+						3
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid vertical-space">
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="span1">
+					<div class="grey-marker">
+						1
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+	<div class="alert">
+		<strong>NOTE:</strong>
+		<p>
+			With this implementation, the nested rows are fluid. That means nested spans are not
+			the same width as normal spans. Instead they are a percentage of the parent width.
+			A nested fluid row will always hold 12 span units, regardless of the width of the 
+			parent. See below for an example..
+		</p>
+	</div>
+
+<div class="row">
+	<div class="span8 grey-box vertical-space bottom-space-most center">
+		<h3>span8</h3>
+		<br/>
+		<div class="holder">
+			<div class="row-fluid">
+				<div class="span6 grey-marker">
+					6
+				</div>	
+				<div class="span2 grey-marker">
+					2
+				</div>
+				<div class="span1 grey-marker">
+					1
+				</div>
+				<div class="span3 grey-marker">
+					3
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span4 grey-box vertical-space center">
+		<h3>span4</h3>
+		<br/>
+		<div class="holder">
+			<div class="row-fluid">
+				<div class="span6 grey-marker">
+					6
+				</div>	
+				<div class="span6 grey-marker">
+					6
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<hr/>
+
+<div class="row vertical-space-more">
+	<div class="span6" id="buttons">
+		<h2>Buttons</h2>
+		<a class="btn btn-large" href="">Regular</a>
+		<a class="btn btn-large btn-green" href="">Green</a>
+		<a class="btn btn-large btn-blue" href="">Blue</a>
+		<a class="btn btn-large btn-purple" href="">Purple</a>
+		<a class="btn btn-large btn-grey" href="">Grey</a>
+	</div>
+	<div class="span6" id="links">
+		<h2>Text Links</h2>
+		<%= link_to "Here's an Example of a Text Link", "#" %>
+	</div>
+</div>
+	<hr/>
+<div class="row vertical-space-more" id="tabs">
+	<div class="span5">
+		<h2>Tabs</h2>
+		<div class="tabbable">
+		  <ul class="nav nav-tabs">
+		    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+		    <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
+		    <li><a href="#tab3" data-toggle="tab">Section 3</a></li>
+		  </ul>
+		  <div class="tab-content">
+		    <div class="tab-pane active" id="tab1">
+		      <p>I'm in Section 1.</p>
+		    </div>
+		    <div class="tab-pane" id="tab2">
+		      <p>Howdy, I'm in Section 2.</p>
+		    </div>
+		    <div class="tab-pane" id="tab3">
+		      <p>What's up? This is Section 3.</p>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="span6 offset1">
+		<h2>Pills and Dropdowns</h2>
+		<ul class="nav nav-pills">
+			<li>
+		    <%= link_to "First Pill", "#" %>
+		  </li>
+		  <li>
+		  	<%= link_to "Second Pill", "#" %>
+		  </li>
+		  <li class="dropdown">
+		    <a class="dropdown-toggle"
+		       data-toggle="dropdown"
+		       href="#">
+		        Dropdown
+		        <b class="caret"></b>
+		      </a>
+		    <ul class="dropdown-menu">
+		      <li>
+		      	<%= link_to "Item 1", "#" %>
+		      </li>
+		      <li>
+		      	<%= link_to "Item 2", "#" %>
+		      </li>
+		    </ul>
+		  </li>
+		</ul>
+	</div>
+</div>
+<div class="row vertical-space">
+</div>
+<hr/>
+<h2>Alerts</h2>
+<div class="row">
+	<div class="span6">
+		<div class="alert">
+		  <button class="close" data-dismiss="alert">&times;</button>
+		  <strong>White:</strong> This is a regular old white alert. Nothing special.
+		</div>
+	</div>
+	<div class="span6">
+		<div class="alert alert-green">
+		  <button class="close" data-dismiss="alert">&times;</button>
+		  <strong>Green:</strong> This is a green alert. It probably represents success.
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="span6">
+		<div class="alert alert-blue">
+		  <button class="close" data-dismiss="alert">&times;</button>
+		  <strong>Blue:</strong> It's all cool. This is a blue alert containing important info.
+		</div>
+	</div>
+	<div class="span6">
+		<div class="alert alert-purple">
+		  <button class="close" data-dismiss="alert">&times;</button>
+		  <strong>Purple:</strong> This alert is purple. Pretty nifty, eh?
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="span6 offset3">
+		<div class="alert alert-grey">
+		  <button class="close" data-dismiss="alert">&times;</button>
+		  <strong>Grey:</strong> Just letting you know this is a grey alert.
+		</div>
+	</div>
+</div>
+<div class="row vertical-space">
+</div>
+<hr/>
+<div class="row vertical-space-more">
+	<div class="span4">
+		<h2>Pagination</h2>
+		<div class="pagination">
+		  <ul>
+		    <li><a href="#">Prev</a></li>
+		    <li class="active">
+		      <a href="#">1</a>
+		    </li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">Next</a></li>
+		  </ul>
+		</div>
+	</div>
+	<div class="span4">
+		<h2>Progress Bars</h2>
+		<div class="progress progress-green progress-dark">
+  		<div class="bar" style="width: 40%;">
+  		</div>
+		</div>
+		<div class="progress progress-blue">
+  		<div class="bar" style="width: 60%;">
+  		</div>
+		</div>
+		<div class="progress progress-purple progress-dark progress-big">
+  		<div class="bar" style="width: 80%;">
+  		</div>
+		</div>
+	</div>
+	<div class="span4">
+		<h2>Striped Bars</h2>
+		<div class="progress progress-green progress-striped active">
+  		<div class="bar" style="width: 80%;">
+  		</div>
+		</div>
+		<div class="progress progress-blue progress-striped progress-big progress-dark active">
+  		<div class="bar" style="width: 100%;">
+  		</div>
+		</div>
+		<div class="progress progress-purple progress-striped active">
+  		<div class="bar" style="width: 40%;">
+  		</div>
+		</div>
+	</div>
+</div>
+
+<hr/>
+
+<div class="row vertical-space-more bottom-space-most">
+	<div class="span12">
+		<h1>Icons by Font Awesome</h1>
+		<br/>
+		<h1>
+			<i class="icon-camera-retro"></i>
+			&nbsp;
+			<i class="icon-facebook"></i>
+			&nbsp;
+			<i class="icon-phone"></i>
+			&nbsp;
+			<i class="icon-comment-alt"></i>
+			&nbsp;
+			<i class="icon-tasks"></i>
+			&nbsp;
+			<i class="icon-unlock"></i>
+			&nbsp;
+			<i class="icon-copy"></i>
+		</h1>
+		<br/>
+		<br/>
+		<span style="font-size: 72px;">
+			<i class="icon-cloud"></i>
+			&nbsp;
+			<i class="icon-hand-up"></i>
+			&nbsp;
+			<i class="icon-magic"></i>
+			&nbsp;
+			<i class="icon-wrench"></i>
+			&nbsp;
+		</span>
+	</div>
+</div>
+
+<hr/>
+
+
+<h1>AsciiMath Markup</h1>
+<br/>
+`sin^-1(x)`
+<br/>
+<br/>
+`x/x={(1,if x!=0),(text{undefined},if x=0):}`
+<br/>
+<br/>
+`hat(ab) bar(xy) ulA vec v dotx ddot y`
+<br/>
+
+<hr/>
+
+<br/>
+
+<h1>Live AsciiMath</h1>
+<br/>
+<%= render 'static_pages/math_markup_test' %>
+
+<br/><br/><br/>
+
+<hr/>
+
+<br/><br/>
+
+<h1>Star Rating with CSS</h1>
+<br/>
+
+<div class="rating" data-avg-rating="0">
+	<span class="star" data-rating="5"></span><span class="star" data-rating="4"></span><span class="star" data-rating="3"></span><span class="star filled" data-rating="2"></span><span class="star filled" data-rating="1"></span>
+</div>
+<script>
+	$(".star").click( function() {
+		alert($(this).attr("data-rating"));
+	});
+</script>
+
+<br/><br/><br/><br/>
+
+<hr/>
+
+<br/><br/>
+
+<h1>Syntax Highlighting</h1>

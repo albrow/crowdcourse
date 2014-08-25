@@ -1,0 +1,9 @@
+<div class="stats">
+		Users: <%= User.all.count %><br/>
+		Videos: <%= Video.where("visible = 't'").size %><br/>
+		Courses: <%= Course.all.count %><br/>
+		Points Earned: <%= (User.all.map {|u| u.points}).sum %><br/>
+		Badges Earned: <%= Badge.all.count %><br/>
+		Quizzes Taken: <%= QuizScore.all.count %><br/>
+		Video Views: <%= VideoView.all.count %><br/>
+</div>

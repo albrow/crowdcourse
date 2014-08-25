@@ -1,0 +1,12 @@
+<% provide(:title, "Quiz for #{@quiz.component.name}") %>
+
+<% crumbs = [{ :name => "All Courses", :path => courses_path }] 
+		crumbs << { :name => @quiz.component.course.categories.first.name, :path => @quiz.component.course.categories.first }
+		crumbs << { :name => @quiz.component.course.name, :path => @quiz.component.course }
+		crumbs << { :name => @quiz.component.name, :path => @quiz.component }
+		crumbs << { :name => "Quiz", :path => nil }
+%>
+
+<%= render 'shared/breadcrumbs', :crumbs => crumbs %>
+
+<%= render @quiz %>

@@ -1,0 +1,42 @@
+<%# a general list implementation for courses, components, sections, etc. %>
+
+<%# takes an array of items as an argument %>
+
+<div class="list-container">
+	
+	<% colors ||= [:blue, :purple, :green] %>
+	<% bg_color ||= :grey %>
+	<% size ||= :large %>
+	<% if !defined?(prioritized) %>
+		<% prioritized = true %>
+	<% end %>
+
+	<% if prioritized %>
+		<% items = items.prioritized %>
+	<% end %>
+
+	<% items.each_slice(2).with_index do |slice, i| %>
+		
+		<div class="twofer row-fluid">
+
+			<% index = i*2 %>
+
+			<% slice.each do |item| %>
+
+					<%# assign each element a different color %>
+					<% color_index = index % 3 %>
+					<% accent_color = colors[color_index] %>
+					
+					<%= render item, :accent_color => accent_color, :bg_color => bg_color, :size => size %>
+					
+					<% index += 1 %>
+
+			<% end %>
+
+		</div>
+
+	<% end %>
+
+	<div class="clear"></div>
+
+</div>

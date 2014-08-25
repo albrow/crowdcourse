@@ -1,0 +1,17 @@
+<% choice ||= @choice %>
+
+<li class="choice-form-item" id="choice-form-item-<%= choice.id %>">
+	<%= form_for choice, :remote => true do |f| %>
+		
+		<%= f.check_box :is_answer, :class => 'choice-is-answer', :id => "choice-is-answer-#{choice.id}" %>
+		<%= f.text_field :content, :class => 'span5 input-small choice-content-field', :id => "input-choice-content-#{choice.id}" %>
+		<span class="choice-delete" rel="tooltip" title="delete"
+								data-id="<%= choice.id %>" data-delete-url="<%= destroy_choice_url %>">
+
+			<i class="icon-remove"></i>
+		
+		</span>
+
+	<% end %>
+	<div class="clear"></div>
+</li>

@@ -1,0 +1,10 @@
+<% accent_color ||= :blue %>
+
+<div class="list-item course-item grey-box span6 <%= accent_color %>-accent">
+	<h3><%= link_to course.name, course %></h3>
+	<div class="course-description">
+		<%= truncate course.description.html_safe, :length => 150 %>
+		<nobr><%= link_to "See More", course %></nobr>
+	</div>
+	<div class="course-lesson-count pull-right"><%= pluralize(course.components.count, "Lesson") %></div>
+</div>

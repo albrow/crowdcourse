@@ -1,0 +1,126 @@
+<% provide(:title, @component.name) %>
+
+<% crumbs = [{ :name => "All Courses", :path => courses_path }] 
+		crumbs << { :name => @component.course.categories.first.name, :path => @component.course.categories.first }
+		crumbs << { :name => @component.course.name, :path => @component.course }
+		crumbs << { :name => @component.name, :path => nil }
+%>
+
+<%= render 'shared/breadcrumbs', :crumbs => crumbs %>
+
+
+<div class="row bottom-space">
+	<div class="span12 grey-box">
+		<h2 class="inline"><%= @component.name %></h2>
+		<div class="pull-right">
+			<%= render 'components/component_nav' %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<% if @component.top_video %>
+		<%= render 'videos/video_embed_frame', :video => @component.top_video, :size => :medium %>
+	<% else %>
+		<%= render 'videos/video_call_to_action' %>
+	<% end %>
+
+	<div class="span4 grey-box">
+		<h3>Description</h3>
+		<p>
+			<%= @component.description %>
+		</p>
+
+		<hr/>
+		
+
+		<% if @component.quiz.nil? %>
+		<%# this lesson does not have a quiz yet %>
+			<div class="btn-label">
+				This lesson needs a Quiz:
+			</div>
+			<%= link_to new_quiz_path(:component_id => @component.id), :class => "btn btn-large btn-grey" do %>
+				<i class="icon-list"></i>&nbsp;
+				Create Quiz
+			<% end %>
+		<% elsif @component.quiz.ready? %>
+		<%# this lesson has a quiz that is ready for taking %>
+			<div class="btn-label">
+				Already know this stuff?
+			</div>
+			<%= link_to @component.quiz, :class => "btn btn-large btn-grey" do %>
+				<i class="icon-list"></i>&nbsp;
+				Take a Quiz
+			<% end %>
+			&nbsp;
+			<%= link_to edit_quiz_path(@component.quiz.id), :class => "link-grey" do %>
+				<i class="icon-pencil"></i>
+				edit quiz
+			<% end %>
+		<% else %>
+		<%# this lesson has a quiz that isn't ready yet (needs more questions) %>
+			<div class="btn-label">
+				The quiz isn't ready yet
+			</div>
+			<%= link_to edit_quiz_path(@component.quiz.id), :class => "btn btn-large btn-grey" do %>
+				<i class="icon-list"></i>&nbsp;
+				Edit Quiz
+			<% end %>
+		<% end %>
+
+		<br/>
+		<br/>
+
+		<% if user_signed_in? %>
+			<div class="btn-label">
+				<% if @component.videos.visible.empty? %>
+					This lesson needs a Video:
+				<% else %>
+					Add a Video to this Lesson:
+				<% end %>
+			</div>
+			<div class="btn-group">
+				<a href="#upload-modal" data-toggle="modal" class="btn btn-large btn-blue">
+					<i class="icon-large icon-upload"></i>
+					&nbsp;
+					Upload
+				</a>
+				<a href="#embed-modal" data-toggle="modal" class="btn btn-large btn-blue">
+					<i class="icon-large icon-link"></i>
+					&nbsp;
+					Embed
+				</a>
+			</div>
+		<% else %>
+			<%# If there is no user signed in, the button will render a sign in form %>
+			<a href="#signin-modal" data-toggle="modal" class="btn btn-large btn-blue">Upload a Video</a>&nbsp;
+		<% end %>
+		
+		<hr/>
+
+		<h3>Maintainers</h3>
+				<%= render 'lists/inline_list', :items => @component.course.maintainers, 
+											:prioritized => false, :bg_color => :white %>
+
+	</div>
+
+</div>
+
+<% if !@component.videos.visible.empty? %>
+	<div class="vertical-space">
+		<br/>
+		<h2 class="inline">Other Videos for this Leson</h2>
+		&nbsp;
+		<a href="#" class="popover-tip" rel="popover" title="Other Videos" data-trigger="hover" data-content="A lesson can have multiple videos from multiple creators, each trying to teach the same thing. Don't forget to rate the video that you think is best!">
+					
+			<i class="icon-question-sign icon-large icon-grey"></i>
+
+		</a>
+		<%= render 'videos/thumbnails', :videos => @component.videos.where("visible = 't'") %>
+	</div>
+<% end %>
+
+<!-- This renders the modal view that will pop-up when upload button is pressed -->
+<%= render "videos/upload_modal", :component => @component %>
+
+<%= render "videos/embed_modal" %>

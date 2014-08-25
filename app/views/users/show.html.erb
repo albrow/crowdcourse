@@ -1,0 +1,146 @@
+<% if @logged_in_user %>
+	<% provide(:title, 'Profile') %>
+<% else %>
+	<% provide(:title, @user.username) %>
+<% end %>
+
+<% if @logged_in_user || @as_other %>
+<div class="alert alert-white">
+  <button class="close" data-dismiss="alert">&times;</button>
+	<% if @as_other %>
+		This is how other people will see your profile. 
+		You can <%= link_to "See your full profile", profile_path %>
+		or <%= link_to "Change visibility settings", privacy_settings_path %>
+	<% elsif @logged_in_user && !@as_other %>
+		You are viewing your own profile. You can also
+		<%= link_to "See how this page appears to other users", 
+				{:controller => :users, :action => :show, :id => current_user.id, 
+					:as_other => true } %>
+	<% end %>
+</div>
+<% end %>
+
+<div class="row">
+	<div class="grey-box span3">
+		<div class="profile-gravatar-container">
+			<%= gravatar_for(@user, :medium) %>
+		</div>
+
+		<% if @logged_in_user %>
+			<div class="profile-change-avatar">
+				<%= link_to "change", "http://en.gravatar.com/emails/" %>
+				<div class="pull-right">(via gravatar)</div>
+			</div>
+		<% end %>
+
+		<div class="user-info">
+			<% if @show_full_name %>
+				<div class="user-fullname">
+					<%= @user.shortened_full_name %>
+				</div>
+				<div class="user-username username-small">
+					<span class="small">a.k.a.</span>
+					<strong><%= @user.username.truncate(18) %></strong>
+				</div>
+			<% else %>
+				<div class="user-username username-medium">
+					<strong><%= @user.username.capitalize.truncate(18) %></strong>
+				</div>
+			<% end %>
+			<% if @show_email %>
+				<div class="user-email">
+					<span class="small"><%= @user.shortened_email(28) %><span class="small">
+				</div>
+			<% end %>
+		</div>
+
+		<div class="profile-user-description">
+
+			<% if @user.description.blank? %>
+				<% if @logged_in_user %>
+					<div class="description-content"></div>
+					<div class="change-description-link">
+						<%= link_to "add description", '#', :class => "user-description-link" %>
+					</div>
+				<% end %>
+
+			<% else %>
+				<div class="description-content">
+					<%= @user.description %>
+				</div>
+				<% if @logged_in_user %>
+				<div class ="change-description-link">
+					<%= link_to "change", '#', :class => "user-description-link" %>
+				</div>
+				<% end %>
+			<% end %>
+
+		</div>
+
+		<% if @show_donation_button %>
+			<hr/>
+			<div class="donation-button-container">
+				<% paypal_email = @user.email.sub("@", "%40").sub(".", "%2e") %>
+				<%= link_to "Donate", 
+				"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=#{paypal_email}&lc=US&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest",
+				:class => "btn btn-large btn-green" %>
+			</div>
+		<% end %>
+
+
+		<% if @show_stats %>
+		<hr/>
+			<div class="profile-user-stats">
+				<h1>Stats</h1>
+				<strong>Points:</strong> <%= @user.points %><br/>
+				<strong>Badges Earned:</strong> <%= @user.badges.size %><br/>
+				<strong>Videos Watched:</strong> <%= @user.video_views.size %><br/>
+				<strong>Videos Made:</strong> <%= @videos_made.size %><br/>
+				<strong>Quizzes Taken:</strong> <%= @user.quizzes_taken.size %><br/>
+				<strong>Avg. Quiz Score:</strong> <%= @user.avg_quiz_score ? "#{@user.avg_quiz_score}%" : "n/a" %>
+			</div>
+		<% end %>
+
+	</div>
+
+	<% if !@videos_made.empty? && @show_videos_made %>
+		<div class="grey-box span9 user-videos-created-container bottom-space">
+			<h1>Videos Added</h1>
+
+			<%= render 'videos/thumbnails', 
+						:videos => @videos_made, 
+						:size => :small, 
+						:bg_color => :white,
+						:show => [ :component, :duration, :rating, :views ]
+			%>
+
+		</div>
+	<% end %>
+
+	<% if @show_activity %>
+		<div class="grey-box span9 user-recent-activity-container bottom-space">
+			<div class="activity-header">
+				<h1>Recent Activity</h1>
+			</div>
+			<% if @user.recent_activity.empty? %>
+				No recent activity :(
+			<% else %>
+				<%= render 'users/recent_activity' %>
+			<% end %>
+		</div>
+	<% end %>
+
+	<% if @empty_profile %>
+		<div class="grey-box span9 user-recent-activity-container bottom-space">
+			<h1>Nothing to Show</h1>
+			<p class="medium">
+				This user has elected to hide his/her activity feed and videos made.
+				There is nothing to see here.
+			</p>
+			<p>
+				<%= link_to "Change your own visibility settings", privacy_settings_path %> 
+			</p>
+		</div>
+	<% end %>
+
+</div>

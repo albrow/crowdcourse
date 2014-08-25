@@ -1,0 +1,15 @@
+<% provide(:title, "My Courses" )%>
+
+<div class="hero-unit">
+	<h1>My Courses</h1>
+	<% if @user.courses.size == 0 %>
+		<p>
+			Looks like you're not enrolled in any courses yet.<br/><br/>
+			<%= link_to "Find a Course", courses_path, :class => "btn btn-large btn-blue" %>
+		</p>
+	<% else %>
+		<p>
+			You're currently enrolled in <%= pluralize @user.courses.size "Courses" %>
+		</p>
+	<% end %>
+</div>

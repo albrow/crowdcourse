@@ -1,0 +1,258 @@
+<% provide(:title, 'About') %>
+<% provide(:active, 'About') %>
+
+<!-- Facebook like button code.. -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=119367024876251";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="row bottom-space-more top-space">
+	<div class="about-content bottom-space-most span12 grey-box more-padding">
+		<div class="holder">
+			<div class="row-fluid bottom-space">
+				<div class="span12">
+				<h1 class="large inline">About CrowdCourse</h1>
+				<div class="fb-like inline left-space" data-href="http://facebook.com/crowdcourse" 
+								data-send="false" data-width="360" data-show-faces="false">
+				</div>
+					<br/><br/>
+					<p style="font-size: 20px; line-height: 28px;">
+						CrowdCourse is a community-driven educational website. It was founded by a college
+						student, and focuses on helping you learn quickly and effectively. We're brand new, but
+						we're pleased to offer a lot of great resources and features. Scroll down to find out
+						more!
+					</p>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<hr/>
+			
+			<div class="row-fluid bottom-space-more" id="learn-from-community-row">
+
+				<div class="span6 learn-from-community-image">
+					<%= image_tag "http://dl9f4gn4hf44p.cloudfront.net/images/classroom.png" %>
+				</div>
+
+				<div class="span6 top-space-more blue-accent" id="learn-from-community-text">
+					<h1>Join Our Community</h1>
+					<br/>
+					<p>
+						CrowdCourse is powered by a community of teachers, professors, and students.
+						<strong>Anyone can help!</strong> If you're passionate about teaching, 
+						you can contribute by uploading a video, submitting
+						a question, or organizing lesson plans and syllabi. 
+					</p>
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+			<div class="row-fluid bottom-space-most" id="learn-faster-row">
+
+				<div class="span6 top-space-more green-accent" id="learn-faster-text" >
+					<h1>Learn Faster</h1>
+					<br/>
+					<p>
+						The lessons on CrowdCourse are <strong> short and to the point</strong>.
+						So instead of sitting through a long lecture, you can cut through the fluff, 
+						find exactly what you're looking for, and
+						<strong>learn faster than ever</strong>.
+					</p>
+					<p>
+						<%= link_to "See a sample course", "courses/1" %>
+					</p>
+				</div>
+
+				<div class="span6" id="learn-faster-image">
+					<%= image_tag "http://dl9f4gn4hf44p.cloudfront.net/images/course.png" %>
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+			<hr/>
+
+			<div class="row-fluid top-space bottom-space-more center">
+				<br/>
+				<h1 class="large">
+					Watch High Quality Videos
+				</h1>
+				<br/>
+				<br/>
+				<span>
+					<%= image_tag "http://dl9f4gn4hf44p.cloudfront.net/images/devices.png" %>
+				</span>
+			</div>
+
+			<div class="row-fluid bottom-space-most">
+				<div class="span4 purple-accent">
+					<h2>
+						<i class="icon-film"></i>
+						Short and Sweet
+					</h2>
+					<p>
+						Most of the videos on CrowdCourse are less than 5 minutes long, so you can
+						learn fast and keep moving forward.
+					</p>
+					<p>
+						<%= link_to "See a sample video", "videos/12" %>
+					</p>
+				</div>
+
+				<div class="span4 blue-accent">
+					<h2>
+						<i class="icon-globe"></i>
+						Mobile-Friendly
+					</h2>
+					<p>
+						Watch videos on any desktop or mobile device, including iPhone,
+						iPad, Android, Windows Phone, and more!
+					</p>
+					<p>
+						<%= link_to "See a sample video", "videos/12" %>
+					</p>
+				</div>
+
+				<div class="span4 green-accent">
+					<h2>
+						<i class="icon-eye-open"></i>
+						High Definition
+					</h2>
+					<p>
+						The videos on CrowdCourse are in beautiful HD quality, and they stream lightning
+						fast through our html5 player.
+					</p>
+					<p>
+						<%= link_to "See a sample video", "videos/12" %>
+					</p>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<hr/>
+
+			<div class="row-fluid top-space bottom-space-more center">
+				<br/>
+				<h1 class="large">
+					Take Interactive Quizzes
+				</h1>
+				<br/>
+				<br/>
+				<div class="center quiz-image-container"
+					<span>
+						<%= image_tag "http://dl9f4gn4hf44p.cloudfront.net/images/quizzes.png" %>
+					</span>
+				</div>
+			</div>
+
+			<div class="row-fluid bottom-space-more">
+				<div class="span6 green-accent">
+					<h2>
+						<i class="icon-ok"></i>
+						Immediate Feedback
+					</h2>
+					<p>
+						Tired of waiting for weeks to get back graded homework assignments?
+						With CrowdCourse, you can take an interactive quiz to <strong>immediately</strong> check your
+						understanding.
+					</p>
+					<p>
+						<%= link_to "See a sample quiz", "quizzes/4" %>
+					</p>
+				</div>
+				<div class="span6 purple-accent">
+					<h2>
+						<i class="icon-tasks"></i>
+						A Variety of Questions
+					</h2>
+					<p>
+						Our quizzes feature a <strong>variety of question formats</strong>, both multiple choice
+						and free response. With CrowdCourse, you'll always be prepared.
+					</p>
+					<p>
+						<%= link_to "See a sample quiz", "quizzes/4" %>
+					</p>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<hr/>
+
+			<div class="row-fluid bottom-space-more top-space">
+				<div class="span6">
+					<%= image_tag "http://dl9f4gn4hf44p.cloudfront.net/images/rewards.png" %>
+				</div>
+				<div class="span6 top-space-most blue-accent">
+					<h1>Earn Rewards</h1>
+					<p>
+						You can <strong>earn points and badges</strong> every time you 
+						watch a video, take a quiz, post a comment, and more! You can earn 
+						even more rewards by contributing content, such as uploading a video. 
+					</p>
+					<p>
+						<strong>Each week, we will congratulate the users with the most points by
+						featuring them on our homepage!</strong>
+					</p>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<div class="row-fluid bottom-space-more">
+				<div class="span6 top-space-more green-accent">
+					<h1>Find it Fast</h1>
+					<p>
+						CrowdCourse features an <strong>intelligent semantic search</strong>, so you 
+						can find what you're looking for faster. You can even use natural language
+						and mathematical symbols.
+					</p>
+					<p>
+						<%= link_to "Search for something", search_path %>
+					</p>
+				</div>
+				<div class="span6">
+					<%= image_tag "http://dl9f4gn4hf44p.cloudfront.net/images/search.png" %>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<hr/>
+
+			<div class="row-fluid bottom-space-more top-space-most center">
+				<h1 class="large">What are you waiting for?</h1>
+				<br/><br/>
+				<p>
+					<%= link_to user_omniauth_authorize_path(:facebook), :class => "btn btn-large btn-facebook" do %>
+						<i class="icon-facebook icon-large"></i>
+					  &nbsp;&nbsp;Sign up with Facebook
+					<% end %>
+					&nbsp;<strong>or</strong>&nbsp;
+					<%= link_to new_user_registration_path, :class => "btn btn-large btn-blue" do %>
+						<i class="icon-envelope-alt icon-large"></i>
+					  &nbsp;&nbsp;Sign up with Email
+					<% end %>
+				</p>
+
+				<br/><br/>
+
+				<p class="center">
+					You might also want to check out our 
+					<%= link_to "News and Announcements", news_path %> page
+				</p>
+			</div>
+
+		</div>		
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h2>Hello, <%= @user.username %></h2>
+    <p>
+      We just finished processing the video you uploaded for
+      <%# unfortunately, I have to hardcode the app so it goes to CrowdCourse.com instead of CrowdCourse.herokuapp.com %>
+      <%= link_to @video.component.name, "#{root_url}videos/#{@video.id}" %>. It is now
+      ready for viewing.
+    </p>
+    <p>
+      Thanks so much for contributing to CrowdCourse!
+    </p>
+    <p>
+      – CrowdCourse Team
+    </p>
+  </body>
+</html>

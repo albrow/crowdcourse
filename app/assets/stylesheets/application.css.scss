@@ -1,0 +1,39 @@
+// /*
+//  * This is a manifest file that'll be compiled into application.css, which will include all the files
+//  * listed below.
+//  *
+//  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+//  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+//  *
+//  * You're free to add application-wide styles to this file and they'll appear at the top of the
+//  * compiled file, but it's generally better to create a new file per style scope.
+//  *
+//  *= require_self
+// */
+
+@import 'bootstrap-custom';
+@import 'mixins';
+@import 'colors';
+@import 'custom';
+@import 'sticky-footer';
+@import 'courses';
+@import 'categories';
+@import 'components';
+@import 'sections';
+@import 'videos';
+@import 'users';
+@import 'quizzes';
+@import 'legal';
+@import 'guidelines';
+@import 'dynamic_pages';
+@import 'static_pages';
+@import 'devise-custom';
+@import 'search';
+@import 'activity';
+@import 'upload';
+@import 'lists';
+@import 'comments';
+@import 'font-awesome';
+@import 'font-awesome-ie7';
+@import 'social-buttons';
+@import 'c-logo';

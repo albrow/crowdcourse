@@ -1,0 +1,30 @@
+<%# 
+	
+	This partial requires two arguments- 
+	activity = the activity object 
+	size = the size (applied as a css class, default = medium)
+
+	%>
+
+<% size ||= :medium %>
+
+<% comment_id = activity.decoded_data["comment_id"] %>
+<% comment = Comment.find_by_id(comment_id) %>
+
+<% if !comment.nil? %>
+	<div class="activity-item activity-item-<%= size %>">
+		<span class="activity-points plus">
+			<strong>+</strong>1 point
+		</span>
+		<%= "<br/>".html_safe if size == :small %>
+		Commented on <%= link_to comment.video.component.name, comment.video %> video 
+		by <%= link_to comment.video.creator.username, comment.video.creator %>.<br/>
+		<div class="comment-activity-content">
+			"<%= truncate comment.content, :length => 150 %>"
+		</div>
+		<br/>
+		<span class="activity-item-time">
+			<%= time_ago_in_words activity.created_at %> ago
+		</span>
+	</div>
+<% end %>

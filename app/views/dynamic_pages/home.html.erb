@@ -1,0 +1,57 @@
+<% provide(:title, 'Home') %>
+<% provide(:active, 'Home') %>
+
+
+<div class="row">
+	<div class="span3">
+		<div class="row">
+			<div class="grey-box span3">
+				<h1>Activity</h1>
+				<br/>
+				<% if @user.recent_activity.empty? %>
+					No recent activity :(
+				<% else %>
+					<%= render 'users/recent_activity', :limit => 8, :size => :small %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="span9">
+		<div class="row">
+			<div class="grey-box span9 bottom-space">
+				<h1>Newest Videos</h1>
+				<br/>
+				<%= render 'videos/thumbnails', 
+								:videos => Video.newest(6), 
+								:size => :small, 
+								:bg_color => :white,
+								:show => [ :component, :duration, :rating, :views ]
+					%>
+			</div>
+		</div>
+		<div class="row">
+			<div class="grey-box span9 bottom-space">
+				<h1>Top Rated Videos</h1>
+				<br/>
+				<%= render 'videos/thumbnails', 
+								:videos => Video.top_rated(6), 
+								:size => :small, 
+								:bg_color => :white,
+								:show => [ :component, :duration, :rating, :views ]
+					%>
+			</div>
+		</div>
+		<div class="row">
+			<div class="grey-box span9 bottom-space">
+				<h1>More Coming Soon!</h1>
+				<p>
+					This page is a work in progress. We're still adding more
+					information and adjusting the design. Check back in a few days to see
+					what's changed.
+				</p>
+			</div>	
+		</div>
+	</div>
+</div>
+
+

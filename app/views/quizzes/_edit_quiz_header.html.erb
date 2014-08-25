@@ -1,0 +1,19 @@
+<% quiz ||= @quiz %>
+<% @component ||= quiz.component %>
+<div class="row">
+	<div class="span12 grey-box more-padding">
+		<h1 class="inline">
+			Edit Quiz for <%= link_to @component.name, @component %>
+		</h1>
+		<div class="pull-right">
+			<% if quiz.ready? %>
+				<%= link_to quiz, :class => "btn btn-large btn-grey" do %>
+					<i class="icon-list"></i>&nbsp;
+					Take this Quiz
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+</div>

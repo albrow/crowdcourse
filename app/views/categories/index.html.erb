@@ -1,0 +1,10 @@
+<% provide(:title, 'Categories') %>
+
+<div class="hero-unit">
+	<h1>All Categories</h1>
+	<p>
+		Click on a category to find out more information and browse courses in that category.
+	</p>
+</div>
+
+<%= render "lists/general_list", :items => @categories, :prioritized => false %>

@@ -1,0 +1,80 @@
+input[type="email"].mailing-list-input {
+	width: 350px;
+}
+
+.start-teaching-button {
+	
+}
+
+.teaching-and-progress-container {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.work-in-progress-container {
+	width: 500px;
+	float: top;
+	display: inline-block;
+	padding-right: 40px;
+	border-right: 1px solid #ccc;
+}
+
+.start-teaching-container {
+	text-align: center;
+	width: 250px;
+	float: right;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.not-teacher-container {
+	margin-top: 50px;
+	padding-top: 40px;
+	border-top: 1px solid #ccc;
+}
+
+.start-teaching-tag {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 36px;
+}
+
+.mailing-list-form-outter {
+	min-height: 131px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.mailing-list-form {
+	margin-right: 50px;
+	margin-top: 50px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	min-height: 95px;
+}
+
+.mailing-list-tag {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 40px;
+	margin-right: 80px;
+}
+
+.landing-page-column {
+	width: 360px;
+	text-align: left;
+	display: inline-block;
+}
+
+.landing-page-features-outer {
+	margin-top: 50px;
+	margin-bottom: 60px;
+}
+
+.landing-page-features-inner {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	margin-left: 50px;
+	text-align: center;
+}

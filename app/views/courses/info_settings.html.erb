@@ -1,0 +1,96 @@
+<% provide(:title, "Settings for #{@course.name}") %>
+
+<div class="row">
+	
+	<%= render 'courses/settings_nav', :active => :basic_info %>
+
+	<div class="span8 grey-box">
+		<h2>Basic Info</h2>
+
+		<% if @course.errors.any? || @category.errors.any? %>
+			<div class="alert alert-white">
+				<button class="close" data-dismiss="alert">&times;</button>
+				<h3>There were some errors:</h3>
+				<ul>
+				<% @course.errors.full_messages.each do |msg| %>
+					<li>
+						Course <%= msg %>
+					</li>
+				<% end %>
+				<% @category.errors.full_messages.each do |msg| %>
+					<li>
+						Category <%= msg %>
+					</li>
+				<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<%= form_for @course do |f| %>
+			
+			<div class="medium">
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</div>
+
+			
+			<div class="medium">
+				<%= label_tag "Category" %>
+				<%= select_tag(:category_id, 
+
+					options_for_select(
+							@category_options, @selected_category
+					),
+
+				:class => "category_id_select") %>
+			</div>
+
+			<div class="category_text_field hide">
+				<div class="medium">
+					<%= label_tag :category_name %>
+					<%= text_field_tag :category_name %>
+				</div>
+			</div>
+
+			<br/>
+
+			<div class="medium">
+				<%= f.label :description %>
+				<%= f.text_area :description, :rows => 8 %>
+			</div>
+
+			
+			<%= f.submit "Update Course", :class => "btn btn-large btn-blue" %>
+
+		<% end %>
+
+		<br/>
+		<hr/>
+		<br/>
+		<h2 class="color-purple">Danger Zone</h2>
+		<%= form_tag destroy_course_with_confirmation_path do %>
+			
+			<p>
+				<div class="alert alert-purple">
+					<strong>
+						To delete this course forever, type in the full course
+						name below and press the delete button. All the sections,
+						lessons, videos, and quizzes associated with this course
+						will also be deleted.
+					</strong>
+				</div>
+			</p>
+
+			<%= hidden_field_tag :course_id, @course.id  %>
+
+			<p class="medium">
+				<%= label_tag :course_confirm_name %>
+				<%= text_field_tag :course_confirm_name %>
+			</p>
+
+			<%= submit_tag "Delete Course", :class => "btn btn-large btn-purple",
+			:confirm => "Are you sure you want to delete the course entitled #{@course.name}? This cannot be undone." %>
+
+		<% end %>
+	</div>
+</div>

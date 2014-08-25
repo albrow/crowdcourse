@@ -1,0 +1,56 @@
+<% provide(:title, @course.name) %>
+
+<% crumbs = [{ :name => "All Courses", :path => courses_path }] 
+		crumbs << { :name => @course.categories.first.name, :path => @course.categories.first }
+		crumbs << { :name => @course.name, :path => nil } 
+%>
+
+<%= render 'shared/breadcrumbs', :crumbs => crumbs %>
+
+<div class="hero-unit botom-space-most">
+	<h1 class="inline"><%= @course.name %></h1>
+	<p>
+		<%= @course.description.html_safe %>
+	</p>
+
+	<% if @show_admin_options %>
+		<span class="blue-accent">
+			<%= link_to @course.info_settings_path, :class => "no-underline" do %>
+				<h2 class="inline">
+					<i class="icon icon-cog"></i>
+					Settings
+				</h2>
+			<% end %>
+		</span>
+	<% end %>
+
+	<% if !@course.sections.blank? %>
+		<div class="coursemap-container top-space-most">
+			<%= render 'courses/coursemap', :course => @course %>
+		</div>
+	<% else %>
+		<% if @show_admin_options %>
+			<br/>
+			<br/>
+			<p>
+			<div class="well white-well center">
+				<p>
+					Thank you for contributing to CrowdCourse!
+					<br/>
+					This course still needs a syllabus.
+					<br/><br/>
+					<%= link_to "Create Syllabus", @course.syllabus_settings_path, :class => "btn btn-large btn-blue" %>
+				</p>
+			</div>
+		<% end %>
+	<% end %>
+
+	<div class="maintainers-container top-space-more">
+		<h2>Maintainers</h2>
+				<%= render 'lists/inline_list', :items => @course.maintainers, 
+											:prioritized => false, :bg_color => :white %>
+	</div>
+
+</div>
+
+<%= render 'lists/sectioned_list', :sections => @sections, :sections_have_own_page => false %>

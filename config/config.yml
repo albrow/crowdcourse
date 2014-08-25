@@ -1,0 +1,20 @@
+development:
+  vimeo_consumer_key: (Redacted for security)
+  vimeo_consumer_secret: (Redacted for security)
+  vimeo_access_token: (Redacted for security)
+  vimeo_access_secret: (Redacted for security)
+  cloudfront_url: http://drq8jpi3pzjv8.cloudfront.net
+
+production:
+  vimeo_consumer_key: (Redacted for security)
+  vimeo_consumer_secret: (Redacted for security)
+  vimeo_access_token: (Redacted for security)
+  vimeo_access_secret: (Redacted for security)
+  cloudfront_url: http://dl9f4gn4hf44p.cloudfront.net
+
+staging:
+  vimeo_consumer_key: (Redacted for security)
+  vimeo_consumer_secret: (Redacted for security)
+  vimeo_access_token: (Redacted for security)
+  vimeo_access_secret: (Redacted for security)
+  cloudfront_url: http://dhj7sdpwknllk.cloudfront.net

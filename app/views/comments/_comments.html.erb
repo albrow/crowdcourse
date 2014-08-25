@@ -1,0 +1,32 @@
+<div class="comments-container grey-box span12 vertical-space-more">
+
+	<% if current_user %>
+		<div class="new-comment-content">
+			<%= form_for Comment.new do |f| %>
+				<%# decided to move this to the comments controller to prevent form tampering %>
+				<%# f.hidden_field :user_id, :value => "#{current_user.id}" %>
+				<%= f.hidden_field :video_id, :value => "#{video.id}" %>
+				<%= f.text_area :content, :rows => 4 %>
+				<div class="add-comment">
+					<%= f.submit "add comment", :class => "btn btn-mini new-comment-link" %>
+				</div>	
+			<% end %>
+		</div>
+	<% else %>
+		<h2 class="inline">Comments</h2>
+		<span class="comment-small-note">
+			<%= link_to "Sign In", new_user_session_path %>
+			to add one
+		</span>
+	<% end %>
+
+
+	<% if !@video.comments.where_visible.empty? %>
+		<div class="comments-list">
+			<% video.comments.by_date.where_visible.each do |comment| %>
+				<%= render comment %>
+			<% end %>
+		</div>
+	<% end %>
+
+</div>

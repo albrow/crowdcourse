@@ -1,0 +1,26 @@
+<div class="inline-list-container">
+	
+	<% colors ||= [:blue, :purple, :green] %>
+	<% bg_color ||= :grey %>
+	<% size ||= :xsmall %>
+	<% if !defined?(prioritized) %>
+		<% prioritized = true %>
+	<% end %>
+
+	<% if prioritized %>
+		<% items = items.prioritized %>
+	<% end %>
+
+	<% items.each_with_index do |item, index| %>
+
+		<%# assign each element a different color %>
+		<% color_index = index % 3 %>
+		<% accent_color = colors[color_index] %>
+		
+		<%= render item, :accent_color => accent_color, :bg_color => bg_color, :size => size, :inline => true %>
+
+	<% end %>
+
+	<div class="clear"></div>
+
+</div>

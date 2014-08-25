@@ -1,0 +1,26 @@
+<% if @component.next_component && @component.previous_component %>
+	<div class="btn-group">
+	  <%= link_to @component.previous_component, :class => "btn btn-large" do %>
+			<i class="icon-chevron-left"></i>
+			&nbsp;
+			Prev. Lesson
+	  <% end %>
+	  <%= link_to @component.next_component, :class => "btn btn-large" do %>
+			Next Lesson
+			&nbsp;
+			<i class="icon-chevron-right"></i>
+	  <% end %>
+	</div>
+<% elsif @component.next_component %>
+	<%= link_to @component.next_component, :class => "btn btn-large" do %>
+		Next Lesson
+		&nbsp;
+		<i class="icon-chevron-right"></i>
+  <% end %>
+<% elsif @component.previous_component %>
+	<%= link_to @component.previous_component, :class => "btn btn-large" do %>
+		<i class="icon-chevron-left"></i>
+		&nbsp;
+		Prev. Lesson
+  <% end %>
+<% end %>

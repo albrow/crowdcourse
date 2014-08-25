@@ -1,0 +1,17 @@
+<div class="quiz-complete-container">
+	<div class="quiz-complete-text">
+		<h1>You've completed the quiz!</h1>
+	</div>
+	<div class="score-container">
+		<% if current_user %>
+			<h2>You scored a <%= @score %>% on the quiz and earned <%= @points_earned %> points. </h2>
+		<% else %>
+			<h2>You scored a <%= @score %>%. Sign in to earn points and badges. </h2>
+		<% end %>
+	</div>
+	<div class="quiz-complete-buttons">
+		<%= link_to "Retake Quiz", @quiz, :class => "btn btn-large btn-grey" %>
+		&nbsp;
+		<%= link_to "Watch Another Video", @quiz.component, :class => "btn btn-large btn-blue" %>
+	</div>
+</div>

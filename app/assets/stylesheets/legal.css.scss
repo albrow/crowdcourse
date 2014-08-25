@@ -1,0 +1,39 @@
+.legal-header {
+	width: 618px;
+	padding: 30px;
+	padding-top: 55px;
+	padding-bottom: 55px;
+	h1 {
+		font-size: 55px;
+	}
+	text-align: center;
+}
+
+.legal-link-top {
+	display: inline;
+	line-height: 36px;
+	margin-right: 40px;
+}
+
+.privacy-container, .terms-container {
+	h1 {
+		display: inline;
+	}
+}
+
+.legal-jump-to {
+	p {
+		font-size: 16px;
+		line-height: 20px;
+	}
+	li {
+		font-size: 14px;
+		line-height: 24px;
+	}
+}
+
+.legal-contact-info {
+	margin-left: 20px;
+	border-left: 1px solid #ccc;
+	padding-left: 10px;
+}

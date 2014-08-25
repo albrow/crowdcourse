@@ -1,0 +1,10 @@
+<% if @resource.last_sign_in_at != nil %>
+  <p>Hello <%= @resource.username %>!</p>
+  <p>Please confirm your new email address by clicking on the link below:</p>
+  <p>If you did not mean to change your email address, you may disregard this message.</p>
+<% else %>
+  <p>Welcome <%= @resource.username %>!</p>
+  <p>Please confirm your account by clicking on the link below:</p>
+<% end %>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

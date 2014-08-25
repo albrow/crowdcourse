@@ -1,0 +1,129 @@
+<% size ||= :large %>
+<% if size == :large %>
+<div class="span12 grey-box">
+
+	<div class="black-frame black-frame-large">
+		<% if video.source == "vimeo" %>
+			<%= render 'videos/vimeo_embed', :video => video, :width => 858 %>
+		<% elsif video.source == "youtube" %>
+			<%= render 'videos/youtube_embed', :video => video, :width => 858 %>
+		<% end %>
+	</div>
+
+	<div class="video-info">
+		<div class="video-info-left">
+			<div class="video-info-name">
+				<h1><%= link_to "#{video.component.name}", video.component, :class => "link-grey" %></h1>
+				<% if user_signed_in? && video.creator.id == current_user.id %>
+					<%# if the video belongs to the current user, use appropriate language and add a delete button %>
+					<span class="video-info-creator">
+						<% if video.hosted? %>
+							<h3 class="inline">created by <%= link_to("you", profile_path).html_safe %></h3>
+						<% else %>
+							<h3 class="inline">shared by <%= link_to("you", profile_path).html_safe %></h3>
+						<% end %>
+					</span>
+					<span class="video-delete-button">
+						<%= link_to "Delete Video", "/videos/#{video.id}", :method => :delete, :class => "btn btn-grey inline", 
+									:confirm => "Are you sure you want to delete your video for #{video.component.name}?" %>
+					</span>
+				<% else %>
+					<%# if the video does not belong to the current user, just link to the creator's profile %>
+					<span class="video-info-creator">
+						<% if video.hosted? %>
+							<h3><%= "created by #{link_to(video.creator.username, video.creator)}".html_safe %></h3>
+						<% else %>
+							<h3><%= "shared by #{link_to(video.creator.username, video.creator)}".html_safe %></h3>
+						<% end %>
+					</span>
+				<% end %>
+				
+			</div>
+		</div>
+		<div class="video-info-right">
+		
+			<% if current_user %>
+				<%= render "videos/star_rating", :video => video, :size => :large %>
+			<% else %>
+				<div class="top-space">
+				<%= link_to "Sign in to rate this video", new_user_registration_path, :class => "btn btn-blue" %>
+			</div>
+			<% end %>
+
+		</div>
+	</div>
+
+	<div class="clear"></div>
+<!-- 
+	TODO: Video stats
+	<hr/>
+
+	<div class="video-stats">
+
+	</div> 
+-->
+
+</div>
+<% elsif size == :medium %>
+	<div class="span8 grey-box">
+
+	<div class="black-frame black-frame-medium">
+		<% if video.source == "vimeo" %>
+			<%= render 'videos/vimeo_embed', :video => video, :width => 540 %>
+		<% elsif video.source == "youtube" %>
+			<%= render 'videos/youtube_embed', :video => video, :width => 540 %>
+		<% end %>
+	</div>
+
+	<div class="video-info">
+		<div class="video-info-left">
+			<div class="video-info-name">
+				<h3><%= link_to "#{video.component.name}", video.component, :class => "link-grey" %></h3>
+				<% if user_signed_in? && video.creator.id == current_user.id %>
+					<%# if the video belongs to the current user, use appropriate language and add a delete button %>
+						<% if video.hosted? %>
+							<h4 class="inline">created by <%= link_to("you", profile_path).html_safe %></h4>
+						<% else %>
+							<h4 class="inline">shared by <%= link_to("you", profile_path).html_safe %></h4>
+						<% end %>
+					<span class="video-delete-button">
+						| &nbsp;<%= link_to "Delete Video", "/videos/#{video.id}", :method => :delete, :class => "inline", 
+									:confirm => "Are you sure you want to delete your video for #{video.component.name}?" %>
+					</span>
+				<% else %>
+					<%# if the video does not belong to the current user, just link to the creator's profile %>
+					<span class="video-info-creator">
+						<% if video.hosted? %>
+							<h4><%= "created by #{link_to(video.creator.username, video.creator)}".html_safe %></h4>
+						<% else %>
+							<h4><%= "shared by #{link_to(video.creator.username, video.creator)}".html_safe %></h4>
+						<% end %>
+					</span>
+				<% end %>
+				
+			</div>
+		</div>
+		<div class="video-info-right">
+			<div class="video-info-upload">
+				
+				<%= render "videos/star_rating", :video => video, :size => :medium %>
+
+				<%# renders an upload button with appropriate language depending on the current logged in user... %>
+				<%# render "videos/upload_links", :video => video %>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+<!-- 
+	TODO: Video stats
+	<hr/>
+
+	<div class="video-stats">
+
+	</div> 
+-->
+
+</div>
+<% end %>

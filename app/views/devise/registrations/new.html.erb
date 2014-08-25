@@ -1,0 +1,82 @@
+<%= provide(:title, 'Sign Up') %>
+
+<div class="grey-box devise-form-container">
+<h1 class="center large">Sign Up</h1>
+<div class="center">
+  By signing up you agree to our <br/>
+  <strong><%= link_to "Terms of Service", "/legal#terms" %></strong>
+</div>
+<br/>
+<br/>
+
+<% if @user.provider.nil? %>
+  <!-- experiencing infinite redirects. commenting out, for now -->
+  <!-- <p class="center">
+   <%= link_to user_omniauth_authorize_path(:facebook), :class => "btn btn-facebook" do %>
+      <i class="icon-facebook icon-large"></i>
+      &nbsp;Sign in with Facebook
+    <% end %>
+  </p>
+  <p class="center">
+    Or fill out the form below.
+  </p>
+  <br/> -->
+<% end %>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  
+  <% if @user.provider.nil? %>
+    <%= devise_error_messages! %>
+  <% else %>
+
+    <% if @user.errors.present? %>
+
+      <% if @user.errors[:email].present? %>
+        <ul>
+          <% @user.errors[:email].each do |msg| %>
+            <li>email <%= msg %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <% if @user.errors[:username].present? %>
+        <ul>
+          <% @user.errors[:username].each do |msg| %>
+            <% if msg == "can't be blank" %>
+              <li>please provide a username</li>
+            <% else %>
+              <li>username <%= msg %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      <% end %>
+      <br/>
+    <% end %>
+  <% end %>
+
+  <% if @user.provider.nil? || @user.errors[:email].present? %>
+    <%# f.label :email %>
+    <%= f.text_field :email, :placeholder => "email" %>
+    <%= f.hidden_field :email_changed, :value => true %>
+  <% end %>
+
+  <% if @user.provider.nil? || @user.errors[:username].present? %>
+    <%# f.label :username %>
+    <%= f.text_field :username, :placeholder => "username" %>
+  <% end %>
+
+
+  <% if @user.provider.nil? %>
+
+    <%# f.label :password %>
+    <%= f.password_field :password, :placeholder => "password" %>
+
+    <%# f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, :placeholder => "confirm password" %>
+
+  <% end %>
+
+  <%= f.submit "Sign Up", :class => "btn btn-large btn-blue pull-right"%><br/>
+<% end %>
+
+Already registered? <%= link_to "Sign In", new_session_path(resource_name) %>
+</div>

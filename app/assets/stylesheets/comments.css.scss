@@ -1,0 +1,56 @@
+.comments-list {
+	margin-top: 25px;
+}
+
+.comment-item {
+	padding: 10px;
+	border-top: 1px solid #ccc;
+	margin-top: 5px;
+}
+
+.comment-user-container {
+	float: left;
+	margin-right: 20px;
+}
+
+.comment-content-and-time {
+	float: left;
+	width: 760px;
+	margin-left: 10px
+}
+
+.comment-content {
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+.comment-time {
+	font-style: italic;
+	color: lighten($dark-grey, 20%);
+	margin-top: 5px;
+}
+
+.delete-comment {
+	float: right;
+	margin-left: 20px;
+	font-size: 16px;
+	font-weight: bold;
+	a {
+		color: lighten($dark-grey, 20%);
+		&:hover {
+			color: $dark-grey;
+		}
+	}
+}
+
+form.new_comment {
+	margin-bottom: 0px;
+}
+
+input.new-comment-link {
+	margin-bottom: 0px;
+}
+
+.comment-small-note {
+	margin-left: 5px;
+}

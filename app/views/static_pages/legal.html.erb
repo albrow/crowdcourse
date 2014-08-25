@@ -1,0 +1,27 @@
+<% provide(:title, 'Legal') %>
+<% provide(:active, 'Legal') %>
+
+<div class="row">
+	<div class="span12 grey-box more-padding bottom-space-more center">
+		<h1 class="large">Legal Stuff</h1>
+		<%= link_to "Privacy Policy", "#privacy", :class => "smooth-scroll" %> 
+		&nbsp; | &nbsp;
+		<%= link_to "Terms of Service", "#terms", :class => "smooth-scroll" %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="grey-box span12 privacy-container more-padding" id="privacy" name="privacy">
+		<h1><%= link_to "Privacy Policy", "#privacy", :class => "smooth-scroll link-grey" %></h1>
+		<hr/>
+		<%= render '/static_pages/privacy_policy' %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="grey-box span12 vertical-space-more terms-container more-padding" id="terms" name="terms">
+		<h1><%= link_to "Terms of Service", "#terms", :class => "smooth-scroll link-grey" %></h1>
+		<hr/>
+		<%= render '/static_pages/terms' %>
+	</div>
+</div>

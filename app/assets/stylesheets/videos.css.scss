@@ -1,0 +1,197 @@
+
+// --------------------------------------------
+// THUMBNAILS
+
+.video-thumb-item {
+	padding: 10px;
+	@include border-radius(5px);
+	border: 1px solid #ddd;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+.video-thumb-item-medium {
+	width: 438px;
+}
+
+.video-thumb-item-small {
+	width: 296px;
+	font-size: 11px;
+	line-height: 14px;
+}
+
+.video-thumb-item-white {
+	background-color: $white;
+}
+
+.video-thumb-item-grey {
+	background-color: $almost-white;
+}
+
+.video-thumb-link {
+	line-height: 0px;
+	font-size: 0px;
+}
+
+.video-thumbs-container {
+	margin-left: -20px;
+}
+
+.video-thumb-image-container {
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+}
+
+.video-thumb-image {
+	border: 1px solid #ccc;
+	@include border-radius(4px);
+}
+
+.video-thumb-views {
+	
+}
+
+.video-thumb-rating {
+	
+}
+
+.video-thumb-item-medium > .video-thumb-created-date {
+	margin-top: 8px;
+}
+
+.video-thumb-item-medium > .video-thumb-name-link {
+	h1, h2, h3, h4, h5 {
+		line-height: 22px;
+		margin-bottom: 5px;
+	}
+}
+
+
+
+// --------------------------------------------
+// EMBEDS / VIEWING
+
+.black-frame {
+	background-color: $black;
+	@include border-radius(6px);
+	padding: 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.black-frame-large {
+	height: 522px;
+}
+
+.black-frame-medium {
+	height: 344px;
+}
+
+.grey-frame {
+	background-color: $dark-grey;
+	@include border-radius(6px);
+	padding: 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.grey-frame-large {
+	height: 522px;
+}
+
+.grey-frame-medium {
+	height: 344px;
+}
+
+.video-not-ready {
+	color: $white;
+	text-align: center;
+	margin-top: 140px;
+}
+
+.video-call-to-action {
+	text-align: center;
+	margin-top: 30px;
+	color: $white;
+	h1 {
+		color: $white;
+	}
+	h2 {
+		color: $white;
+	}
+	h3 {
+		color: $white;
+	}
+}
+
+.video-info {
+	margin-top: 10px;
+}
+
+.video-info-right {
+	float: right;
+}
+
+.video-info-left {
+	float: left;
+}
+
+.video-delete-button {
+	margin-left: 5px;
+}
+
+
+
+
+// --------------------------------------------
+// RATINGS
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: left;
+}
+
+.rating-large {
+	font-size: 30px;
+  margin-top: 15px;
+}
+
+.rating-medium {
+	font-size: 22px;
+	margin-top: 5px;
+}
+
+.rating span.star {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+}
+
+.rating span.star:hover {
+  cursor: pointer;
+}
+
+.rating span.star:before {
+  content: "\f006";
+  padding-right: 5px;
+}
+
+.rating span.star:hover:before,
+.rating span.star:hover ~ span.star:before,
+.rating span.star.rated {
+  content: "\f005";
+  color: $blue;
+}
+
+.rating span.star.filled:before {
+  content: "\f005";
+}
+
+.rating-details {
+  margin-top: 0px;
+  text-align: center;
+}

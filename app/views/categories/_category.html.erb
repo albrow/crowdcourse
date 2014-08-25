@@ -1,0 +1,11 @@
+
+<% accent_color ||= :blue %>
+
+<div class="list-item category-item grey-box span6 <%= accent_color %>-accent">
+	<div class="category-name">
+		<h2> <%= link_to category.name, category %> </h2>
+	</div>
+	<div class="category-courses-count">
+		<%= pluralize(category.courses.size, "Course") %>
+	</div>
+</div>

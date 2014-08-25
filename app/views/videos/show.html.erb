@@ -1,0 +1,19 @@
+<% provide(:title, "#{@video.component.name} Video by #{@video.creator.username}") %>
+
+<% crumbs = [{ :name => "All Courses", :path => courses_path }] 
+		crumbs << { :name => @video.component.course.categories.first.name, :path => @video.component.course.categories.first }
+		crumbs << { :name => @video.component.course.name, :path => @video.component.course }
+		crumbs << { :name => @video.component.name, :path => @video.component }
+		crumbs << { :name => "Video by #{@video.creator.username}", :path => nil }
+%>
+
+<%= render 'shared/breadcrumbs', :crumbs => crumbs %>
+
+<div class="row">
+	<%= render 'videos/video_embed_frame', :video => @video, :size => :large %>
+</div>
+
+
+<div class="row">
+	<%= render '/comments/comments', :video => @video %>
+</div>

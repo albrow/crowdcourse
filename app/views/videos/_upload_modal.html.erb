@@ -1,0 +1,221 @@
+<%# This partial requires one argument– component. %>
+<%# For now, javascript is included for simplicity (consider moving it to a separate file) %>
+
+
+
+<script type="text/javascript">
+
+var queueBytesLoaded = 0;
+var queueBytesTotal = 0;
+var myQueue = null;
+var video_path;
+
+$(document).ready(function() {
+
+  // since the button doesn't react to pointer:hover, we have to do it manually...
+  $(".upload-submit-button-container").mouseenter(function() {
+    $("#button-overlay").addClass('btn-grey-hover');
+  }).mouseleave(function() {
+    $("#button-overlay").removeClass('btn-grey-hover');
+  });
+
+});
+
+var queueChangeHandler = function(queue){
+  // alert('Uploading Started');
+  myQueue = queue;
+  // console.log("COLLECTION CHANGE!");
+  var list = document.getElementById('file_todo_list');
+  // Clear out the old
+  while (list.hasChildNodes()){list.removeChild(list.firstChild);}
+  // Add the new
+  for (i=0;i<queue.files.length;i++)
+  {
+    addFileToTodoList(queue.files[i].name, queue.files[i].size, i);
+  }
+};
+
+var fileAddHandler = function() {
+  // we only want to allow one file at a time
+  if (myQueue.files.length > 1) {
+    javascript:s3_swf_1_object.removeFileFromQueue(0);
+  }
+}
+
+var uploadingStartHandler = function(){
+  queueBytesTotal = 0;
+  queueBytesLoaded = 0;
+  for (i=0;i<myQueue.files.length;i++)
+  {
+    queueBytesTotal += parseInt(myQueue.files[i].size);
+  }
+  document.getElementById('queue_size').innerHTML = readableBytes(queueBytesTotal);
+};
+
+var uploadingFinishHandler = function(){
+  $('#upload-progress>.bar').width('100%');
+
+};
+
+var queueClearHandler = function(queue){
+  $('#upload-progress>.bar').width('0%');
+  $('#upload-progress').css('visibility', 'hidden');
+  var list = document.getElementById('file_done_list');
+  while (list.hasChildNodes()){list.removeChild(list.firstChild);}
+};
+
+var addFileToDoneList = function(file_name, file_size){
+  var list = document.getElementById('file_done_list');
+  var li = document.createElement("li");
+  // truncate the file name so it fits on the screen...
+  short_name =  $.trim(file_name).substring(0, 45).split(" ").slice(0, -1).join(" ") + "...";
+  li.innerHTML = 
+    '<span class="file_name">'+short_name+'</span>'+
+    '<span class="file_size">'+readableBytes(file_size)+'</span>'+
+    '<div class="progress progress-big progress-dark progress-striped active progress-blue" id="upload-progress">'+
+      '<div class="bar" style="width: 100%;"></div>'+
+    '</div>'+
+    '<div class="progress-value">Finishing...</div>';
+  list.appendChild(li);
+};
+
+var addFileToTodoList = function(file_name, file_size, index){
+  $(".upload-instructions").hide();
+  var list = document.getElementById('file_todo_list');
+  var li = document.createElement("li");
+  // truncate the file name so it fits on the screen...
+  short_name =  $.trim(file_name).substring(0, 45).split(" ").slice(0, -1).join(" ") + "...";
+  li.innerHTML = 
+    '<span class="file_name">'+short_name+'</span>'+
+    '<span class="file_size">'+readableBytes(file_size)+'</span>'+
+    '<span class="delete" onclick="javascript:s3_swf_1_object.removeFileFromQueue('+index+');">Remove</span>'+
+    '<div class="progress progress-dark progress-big progress-striped progress-blue active" id="upload-progress">'+
+      '<div class="bar" style="width: 0%;"></div>'+
+    '</div>'+
+    '<div class="progress-value">0%</div>';
+  list.appendChild(li);
+  $("#upload-progress").hide();
+  $(".progress-value").hide();
+};
+
+var progressHandler = function(progress_event){
+  //document.getElementById('file_todo_list').firstChild.children[3].style.display = 'none';
+  var current_percentage = Math.floor((parseInt(progress_event.bytesLoaded)/parseInt(progress_event.bytesTotal))*100)+'%';
+  
+  $('#upload-progress').css('visibility', 'visible');
+  $('#upload-progress>.bar').width(current_percentage);
+  $(".progress-value").html(current_percentage);
+
+  // var overall_percentage = Math.floor(((queueBytesLoaded+parseInt(progress_event.bytesLoaded))/queueBytesTotal)*100)+'%';
+
+};
+
+var uploadCompleteHandler = function(upload_options,event){
+  queueBytesLoaded += parseInt(upload_options.FileSize);
+  addFileToDoneList(upload_options.FileName,upload_options.FileSize);
+  console.log(upload_options);
+
+  $.post('/videos/create_from_file', { component_id: <%= component.id %>, s3_key: upload_options.key }, function(data) {
+    // the data returned is the video id.
+    // we want to redirect to show the video that was just uploaded.
+
+    setTimeout(function() {
+      video_path = "/videos/" + data;
+      window.location = video_path;
+    }, 200);
+
+    // video_path = "/videos/" + data;
+    // console.log(video_path);
+  } );
+};
+
+var readableBytes = function(bytes) {
+  var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+  var e = Math.floor(Math.log(bytes)/Math.log(1024));
+  return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+}
+
+var uploadCancelHandler = function() {
+  try {
+    s3_swf_1_object.stopUploading();
+  } catch(err) {
+    console.log("WARNING: tried to stop uploading, but upload not in progress");
+  }
+  if (myQueue && myQueue.files.length > 0) {
+    s3_swf_1_object.clearQueue();
+  }
+  $('#upload-modal').modal('hide');
+}
+
+</script>
+
+<div class="modal show fade" id="upload-modal">
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h2>Upload Video</h2>
+  </div>
+
+  <div class="modal-body">
+
+    <div class="upload-instructions">
+      <p>
+        Click the <strong>Browse</strong> button below,
+        choose a file, <br/> and then click <strong>Upload</strong>
+      </p>
+    </div>
+    <div id="file_lists">
+      <ul id="file_done_list" class="file_list"></ul>
+      <ul id="file_todo_list" class="file_list"></ul>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+     
+    <div class="upload-submit-button-container">
+      <% 
+        # create a random, unique prefix for the key
+        require 'digest'
+        token = Digest::SHA1.hexdigest(rand(36**8).to_s(36))
+      %>
+      <%=raw s3_swf_upload_tag(
+
+        :buttonWidth => 85,
+        :buttonHeight => 38,
+        :buttonUpPath => '/flash/s3_button_blank.png',
+        :buttonOverPath => '/flash/s3_button_blank.png',
+        :buttonDownPath => '/flash/s3_button_blank.png',
+        :selectMultipleFiles => false,
+        :fileTypes => '*.mov;*.mp4;*.mkv;*.avi;*.mgp;*.3gp;*.wmv;',
+        :onFileAdd => 'fileAddHandler();',
+        :fileTypeDescs => 'Video files.',
+        :keyPrefix => "uploads/#{token}/",
+        :onFileNotInQueue => "alert('File not found in the queue');",
+        :onFileSizeLimitReached => "alert('That file is too big');",
+        :onQueueChange => "queueChangeHandler(queue);",
+        :onQueueSizeLimitReached => "alert('There are too many files in the queue');",
+        :onQueueClear => "queueClearHandler(queue);",
+        :onUploadingStart => "uploadingStartHandler();",
+        :onUploadingFinish => "uploadingFinishHandler();",
+        :onSignatureIOError => "alert('There was an error');",
+        :onSignatureXMLError => "alert('There was an error');",
+        :onSignatureSecurityError => "alert('There was an error');",
+        :onUploadError => "alert('There was an error');",
+        :onUploadIOError => "alert('There was an error');",
+        :onUploadSecurityError => "alert('There was an error');",
+        :onUploadProgress => "progressHandler(progress_event);",
+        :onUploadComplete => "uploadCompleteHandler(upload_options,event);"
+
+      ) %>
+
+    <div id="button-overlay" class="btn btn-large btn-grey">Browse</div>
+
+    </div>
+
+
+    <input type="submit" class="btn btn-large btn-blue" id="StartButton" value="Upload" onclick="s3_swf_1_object.startUploading();$('#upload-progress').show();$('.progress-value').show();" />
+    <input type="submit" class="btn btn-large btn-grey" id="StopButton" value="Cancel" onclick="uploadCancelHandler();" />
+  
+
+  </div>
+</div>

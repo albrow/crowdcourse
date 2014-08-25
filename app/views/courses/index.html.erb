@@ -1,0 +1,24 @@
+<% provide(:title, 'Courses') %>
+
+<div class="hero-unit">
+	<h1>All Courses</h1>
+	
+	<p>
+		All of our courses are managed by a small group of maintainers, and anyone can contribute. 
+		Click on a course to find out more information or start taking lessons.
+	</p>
+	<br/>
+	<p>
+		Got an idea for a course that isn't listed here?
+	</p>
+	<p>
+		<%= link_to new_course_path, :class=> "btn btn-large btn-blue" do %>
+			<i class="icon icon-plus"></i>
+			Start a New Course
+		<% end %>
+	</p>
+	
+	
+</div>
+
+<%= render 'lists/sectioned_list', :sections => @categories, :sections_have_own_page => true %>

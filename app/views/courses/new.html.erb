@@ -1,0 +1,73 @@
+<% provide(:title, "New Course") %>
+
+<div class="row">
+	<div class="span12 grey-box more-padding">
+		<h1 class="large">Start a Course</h1>
+		<br/>
+		<p class="medium">
+			<strong>Note:</strong> Before you get started, please check if the course you want to start has already been started by
+			another member. For example, we only want one Introductory Calculus Course, so that it's easier
+			for prospective learners to find what they're looking for and compare available resources. You can
+			use the search bar in the top right corner to search all of our existing courses.
+		</p>
+		<p class="medium">
+			By creating this course, you will automatically become the first maintainer. You will be in charge of
+			moderating the content that other people submit for the course. You may also choose other maintainers
+			to help you with this responsibility. 
+		</p>
+		<br/>
+
+		<% if @course.errors.any? || @category.errors.any? %>
+			<div class="alert alert-white">
+				<button class="close" data-dismiss="alert">&times;</button>
+				<h3>There were some errors:</h3>
+				<ul>
+				<% @course.errors.full_messages.each do |msg| %>
+					<li>
+						Course <%= msg %>
+					</li>
+				<% end %>
+				<% @category.errors.full_messages.each do |msg| %>
+					<li>
+						Category <%= msg %>
+					</li>
+				<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<%= form_for @course do |f| %>
+			
+			<div class="medium">
+				<%= f.label :name, "Course Name" %>
+				<%= f.text_field :name %>
+			</div>
+
+			
+			<div class="medium">
+				<%= label_tag "Category" %>
+				<%= select_tag :category_id,
+						options_for_select(@category_options),
+						:class => "category_id_select" %>
+			</div>
+
+			<div class="category_text_field hide">
+				<div class="medium">
+					<%= label_tag :category_name %>
+					<%= text_field_tag :category_name %>
+				</div>
+			</div>
+
+			<br/>
+
+			<div class="medium">
+				<%= f.label :description %>
+				<%= f.text_area :description, :rows => 8 %>
+			</div>
+
+			
+			<%= f.submit "Start Course", :class => "btn btn-large btn-blue" %>
+
+		<% end %>
+	</div>
+</div>

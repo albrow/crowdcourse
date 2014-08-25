@@ -1,0 +1,103 @@
+// ---------------------------------------
+// ABOUT PAGE
+// ----------------
+
+
+.about-content {
+
+	p {
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+.about-top {
+	padding: 20px;
+	width: 858px;
+}
+
+// small changes to individual elements (identified by id)
+// for proper spacing and alignment....
+
+#learn-from-community-row {
+	margin-top: 40px;
+}
+
+#learn-faster-text {
+	padding-left: 20px;
+	width: 412px;
+}
+
+
+//----------------------
+
+
+.contact-content {
+	font-size: 18px;
+	line-height: 27px;
+	li {
+		font-size: 18px;
+		line-height: 30px;
+	}
+	ul {
+		margin-top: 15px;
+	}
+}
+
+.news-container {
+	font-size: 16px;
+	line-height: 22px;
+	p {
+		font-size: 16px;
+		line-height: 22px;
+	}
+	li {
+		line-height: 22px;
+		margin-bottom: 10px;
+	}
+}
+
+.news-header {
+	text-align: center;
+	h1 {
+		font-size: 60px;
+		line-height: 60px;
+		margin-top: 30px;
+	}
+}
+
+.markup-test-container {
+	margin-left: 25px;
+}
+
+.markup-text-area {
+	width: 350px;
+	float: left;
+}
+
+.markup-result {
+	margin-left: 40px;
+	float: left;
+	background-color: $almost-white;
+	min-height: 125px;
+	width: 350px;
+	border: solid 1px #aaa;
+	@include border-radius(3px);
+	padding: 20px;
+}
+
+#example-button {
+	margin-left: 10px;
+}
+
+.video-guidelines {
+	p {
+		font-weight: normal;
+	}
+	ul {
+		font-size: 16px;
+		li {
+			line-height: 28px;
+		}
+	}
+}

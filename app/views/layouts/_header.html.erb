@@ -1,0 +1,107 @@
+<div class="navbar-custom">  
+  <div class="navbar-inner">
+		<div class="container">
+      <%= link_to root_path do %>
+  			<div class="brand">
+          <div class="c-logo">
+            <div class="c-outer"></div>
+            <div class="c-inner"></div>
+          </div>
+          <div class="brand-text">
+    				<strong>Crowd</strong>Course
+          </div>
+          <div class="brand-subtext">
+            <strong>beta</strong>
+          </div>
+  			</div>
+      <% end %>
+
+      <div class="mini-search-form-container">
+        <%= form_for :search, :url => "/search" do |f| %>
+        <%= f.text_field :query, :placeholder => "search", :class => "mini-search-input" %>
+        <% end %>
+      </div>
+      
+
+			<% if user_signed_in? %>
+
+      		<ul class="nav nav-pills pull-right">
+
+					<!-- render and the pill helper method determine which pill should be active based on provide(:active => '...') -->
+			  	<%# render :inline => pill("Home", root_path, yield(:active)) %>
+				 
+
+				 	<li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Teach <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu">
+            		<%= render :inline => pill("Start a Course", new_course_path, yield(:active)) %>
+            		<%= render :inline => pill("Give Feedback", contact_path, yield(:active)) %>
+            </ul>
+
+          </li>
+
+				 	<li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Learn <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu">
+            		<%= render :inline => pill("Courses", courses_path, yield(:active)) %>
+							 	<%= render :inline => pill("Videos", videos_path, yield(:active)) %>
+            </ul>
+
+          </li>
+
+
+				  <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu">
+              <div class= "account-dropdown-thumbnail">
+                <%= gravatar_for(current_user, :xsmall) %>
+              </div>
+              <div class="account-dropdown-details">
+                <strong><%= truncate(current_user.username, :length => 15)%></strong><br/>
+                <%= current_user.points %> points
+              </div>
+              <li class="divider"></li>
+            	<%= render :inline => pill("Profile", profile_path, yield(:active)) %>
+              <li><%= link_to "Settings", edit_user_registration_path %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
+              </li>
+            </ul>
+
+          </li>
+				</ul>
+			<% else %>
+			  <ul class="nav nav-pills pull-right">
+				  <%= render :inline => pill("Home", root_path, yield(:active)) %>
+
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Learn <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu">
+                <%= render :inline => pill("Courses", courses_path, yield(:active)) %>
+                <%= render :inline => pill("Videos", videos_path, yield(:active)) %>
+            </ul>
+
+          </li>
+          
+				 	<%= render :inline => pill("News", news_path, yield(:active)) %>
+				 	<%= render :inline => pill("About", about_path, yield(:active)) %>
+				 	<%= render :inline => pill("Sign In", new_user_session_path, yield(:active)) %>
+				</ul>
+			<% end %>
+
+		</div>
+	</div>
+</div>

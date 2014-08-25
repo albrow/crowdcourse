@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="grey-box span12 more-padding">
+		<h1 class="inline">
+			Quiz for
+			<%= link_to truncate("#{@quiz.component.name}", :length => 35), @quiz.component %>
+		</h1>
+		<div class="pull-right">
+			<%= link_to edit_quiz_path(@quiz), :class => "btn btn-grey btn-large" do %>
+				<i class="icon-pencil"></i>
+				&nbsp;
+				Edit Quiz
+			<% end %>
+		</div>
+	</div>
+</div>
+	<div class="row">
+	<div class="grey-box span12 quiz-container">
+		<div class="question-container" id="<%= @first_question.id %>">
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<%# The coursemap renders a shortlist of the sections and lessons in a given course. %>
+<%# It requires a single local variable, :course %>
+
+<div class="holder">
+	<div class="row-fluid">
+		<div class="coursemap span12 white-box">
+		<h2 class="inline">Course Overview</h2>&nbsp;&nbsp;(scroll down to see details)
+		<% course.sections.prioritized.each do |sec| %>
+			<% condensed_name = sec.name.downcase.gsub(" ", "_").gsub("'", "") # remove spaces and unusual chars %>
+
+			<div class="coursemap-section">
+
+			<h4>
+				<%# fuck yeah! my custom to_roman method (and a nifty Romanizable module) defined in custom_initializer.rb %> 
+				<%= link_to "#{sec.priority.to_roman}. #{sec.name}", "##{condensed_name}", :class => "link-grey no-underline smooth-scroll" %>
+			</h4>
+			
+				<ul>
+
+				<% sec.components.prioritized.each_slice(3) do |slice| %>
+
+				<%# renders an unordered list, with two items on each row %>
+				<%# here, each slice contains 3 components %>
+
+					<div class="threesome">
+						<div class="coursemap-item">
+							<li>
+								<%= link_to slice[0].name, slice[0], :class => "no-underline" %>
+							</li>
+						</div>
+						<% if slice[1] # sometimes the slice will only contain 1 element if it's at the end %> 
+							<div class="coursemap-item">
+								<li>
+									<%= link_to slice[1].name, slice[1], :class => "no-underline" %>
+								</li>
+							</div>
+						<% end %>
+						<% if slice[2] # sometimes the slice will only contain 1 element if it's at the end %> 
+							<div class="coursemap-item">
+								<li>
+									<%= link_to slice[2].name, slice[2], :class => "no-underline" %>
+								</li>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+				</ul>
+				<div class="clear"></div>
+			</div>
+
+		<% end %>
+		<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>

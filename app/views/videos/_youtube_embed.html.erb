@@ -1,0 +1,95 @@
+<% width ||= 858 %>
+<% height = width*9/16 %>
+
+<div class="video-iframe-container" data-video-id="<%= video.id %>" data-video-source="<%= video.source %>">
+
+	<div id="player"></div>
+
+</div>
+
+<script>
+		
+		var vid_id = 0;
+		var view_id = 0;
+		var hasStarted = false;
+
+	  // 2. This code loads the IFrame Player API code asynchronously.
+	  var tag = document.createElement('script');
+	  tag.src = "//www.youtube.com/iframe_api";
+	  var firstScriptTag = document.getElementsByTagName('script')[0];
+	  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	  // 3. This function creates an <iframe> (and YouTube player)
+	  //    after the API code downloads.
+	  var player;
+	  function onYouTubeIframeAPIReady() {
+	    player = new YT.Player('player', {
+	      height: '<%= height %>',
+	      width: '<%= width %>',
+	      videoId: '<%= video.youtube_id %>',
+	      playerVars: {
+	      	'modestbranding' : 0,
+	      	'rel' : 0,
+	      	'showinfo' : 0,
+	      	'controls' : 1,
+	      	'autoplay' : 0, // maybe change this?
+	      	'html5' : 1,
+	      	'fs' : 1,
+	      	'iv_load_policy' : 3
+	      },
+	      events: {
+	        'onReady': onPlayerReady,
+	        'onStateChange': onPlayerStateChange
+	      }
+	    });
+	  }
+
+	  // 4. The API will call this function when the video player is ready.
+	  function onPlayerReady(event) {
+	    // player.playVideo();
+
+	    // a hack to allow fullscreen for html5 iframes
+	    $(".video-iframe-container>iframe").attr("webkitAllowFullScreen", "");
+	    $(".video-iframe-container>iframe").attr("mozallowfullscreen", "");
+	    $(".video-iframe-container>iframe").attr("allowFullScreen", "");
+	  }
+
+	  // 5. The API calls this function when the player's state changes.
+	  //    The function indicates that when playing a video (state=1),
+	  //    the player should play for six seconds and then stop.
+	  var done = false;
+	  function onPlayerStateChange(event) {
+	    if (event.data == 1) {
+	    	// the video is playing
+	    	onPlay();
+
+	    } else if (event.data == 0)  {
+	    	// the video is done playing
+	    	onFinish();
+	    	
+	    }
+	  }
+
+	  function stopVideo() {
+	    player.stopVideo();
+	  }
+
+	  function onPlay() {
+			if (!hasStarted) {
+          console.log("started video!");
+          vid_id = $(".video-iframe-container").attr("data-video-id");
+          $.post("/video_view", { video_id: vid_id }, function(data) {
+              // the server responds with a view id
+              console.log(data);
+              view_id = data;
+          });
+      }
+      hasStarted = true;
+	  }
+
+	  function onFinish() {
+	  	console.log("video is finished!");
+    	vid_id = $(".video-iframe-container").attr("data-video-id");
+      $.post("/video_view_complete", { video_id: vid_id, view_id: view_id });
+	  }
+</script>

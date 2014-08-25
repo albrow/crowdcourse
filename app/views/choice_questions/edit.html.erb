@@ -1,0 +1,69 @@
+<% provide(:title, "Edit Quiz for #{@question.quiz.component.name}") %>
+
+<%= render 'quizzes/edit_quiz_header', :quiz => @question.quiz %>
+
+<div class="row vertical-space">
+
+	<%= render 'quizzes/edit_question_list', :quiz => @question.quiz, :active => @question %>
+
+	<div class="span8 grey-box">
+
+		<h2 class="inline">Edit Question</h2>
+		<div class="pull-right delete-question-container">
+			<%= link_to @question, :method => :delete, :class => "btn btn-grey",
+			:confirm => "Are you sure you want to delete this question?" do %>
+			<i class="icon-trash"></i>
+			Delete Question
+			<% end %>
+		</div>
+
+		<div class="clear"></div>
+
+		<br/>
+
+		<%= form_for @question do |f| %>
+		
+		<p class="medium">
+			<%= f.label :description, "Question Text:" %>
+			<%= f.text_area :description, :rows => 4, :placeholder => 'e.g., What is 2 + 2?' %>
+
+		</p>
+
+		<% end %>
+
+		<p class="medium">Choices:</p>
+
+		<br/>
+
+		<% if !@question.ready? %>
+			<div class="well white-well">
+				This question needs at least two choices and one answer.
+				You can add a choice by clicking the button below. Click the checkbox to mark one of
+				the choices as the correct answer.
+			</div>
+		<% end %>
+
+		<ul class="edit-choice-form-list center">
+			<% @question.choices.by_date.each do |choice| %>
+			<%= render 'quiz_choices/edit_form', :choice => choice %>
+			<% end %>
+		</ul>
+
+		<div class="center">
+			<%= link_to "#", :class => "btn btn-green add-choice-button",
+						'data-question-id' => @question.id, 'data-url' => quiz_choices_path do %>
+				<i class="icon-plus"></i>
+				add choice
+			<% end %>
+		</div>
+
+		<div class="clear"></div>
+		<br/>
+		<hr/>
+		<br/>
+
+		<%= link_to "Save Question", "#", :class => "btn btn-blue btn-large choice-question-save" %>
+
+	</div>
+
+</div>

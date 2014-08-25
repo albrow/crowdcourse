@@ -1,0 +1,46 @@
+<%# 
+			renders a set of video thumbnails
+			takes some args: 
+
+			- videos (required)
+			- size = :small | :medium (default = :medium)
+			- bg_color = :white | :grey (default = :grey)
+ %>
+
+
+<% size ||= :medium %>
+<% bg_color ||= :grey %>
+<% show ||= [ :component, :creator, :views, :rating, :duration, :date ] %>
+
+<div class="video-thumbs-container">
+
+	<% colors = [:purple, :blue, :green] %>
+
+	<% videos.each_slice(2).with_index do |slice, i| %>
+		
+		<div class="twofer">
+
+			<% index = i*2 %>
+
+			<% slice.each do |v| %>
+
+				<%# assign each element a different color %>
+				<% color_index = index % 3 %>
+				<% accent_color = colors[color_index] %>
+				
+				<%= render 'videos/thumbnail', 
+							:video => v, 
+							:accent_color => accent_color,
+							:size => size,
+							:bg_color => bg_color,
+							:show => show
+				%>
+				
+				<% index += 1 %>
+
+			<% end %>
+
+		</div>
+
+	<% end %>
+</div>

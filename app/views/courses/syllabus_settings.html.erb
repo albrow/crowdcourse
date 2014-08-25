@@ -1,0 +1,43 @@
+<% provide(:title, "Settings for #{@course.name}") %>
+
+<div class="alert alert-white">
+	<button class="close" data-dismiss="alert">&times;</button>
+	TIP: you can re-order the lessons by dragging the
+	&nbsp;
+	<strong><span class="color-grey" style="font-size: 15px; line-height: 20px;">&#8942;</span></strong>
+	&nbsp;
+	icon.
+</div>
+
+<div class="row">
+	
+	<%= render 'courses/settings_nav', :active => :syllabus %>
+
+	<div class="span8 grey-box">
+		<h2>Syllabus</h2>
+
+		<% if !@course.sections.any? %>
+		<br/>
+		<div class="well white-well">
+			<p class="medium">
+				This syllabus is basically an outline for the course. 
+				It is made up of sections, and each section can have one or
+				more lessons. Press "add section" below to start making your
+				syllabus.
+			</p>
+		</div>
+		<% end %>
+
+		<div class="center new-section-button-container">
+			<%= link_to "#", :class => 'new-section-button btn btn-green', 'data-course-id' => @course.id, 'data-url' => sections_url do %>
+				<i class="new-section-icon icon-plus"></i>
+				<span class="new-section-text">add section</span>
+			<% end %>
+		</div>
+
+		<div class="top-space sections-for-editable-components">
+			<%= render 'lists/sectioned_editable_components_list', :sections => @course.sections, :prioritized => true %>
+		</div>
+
+	</div>
+</div>

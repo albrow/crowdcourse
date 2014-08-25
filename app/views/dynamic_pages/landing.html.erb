@@ -1,0 +1,60 @@
+<% provide(:title, 'Welcome') %>
+<% provide(:active, 'Home') %>
+<div class="hero-unit vertical-space">
+	<h1 class="center">Welcome to CrowdCourse!</h1>
+	
+	<div class="well white-well landing-page-features-outer">
+		<div class="landing-page-features-inner">
+			<div class="landing-page-column">
+				<h3>
+					<i class="icon-play-circle icon-large">
+						<span>&nbsp; Short Educational Videos</span>
+					</i>
+				</h3>
+				<br/>
+				<h3>
+					<i class="icon-list-ul icon-large">
+						<span>&nbsp; Interactive Quizzes</span>
+					</i>
+				</h3>
+				<br/>
+			</div>
+			
+			<div class="landing-page-column">
+				<h3>
+					<i class="icon-heart icon-large">
+						<span>&nbsp; Community-Powered</span>
+					</i>
+				</h3>
+				<br/>
+				<h3>
+					<i class="icon-ok icon-large">
+						<span>&nbsp; Absolutely Free</span>
+					</i>
+				</h3>
+				<br/>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+	</div>
+
+
+	<p class="center">
+		<%= link_to new_user_registration_path, :class => "btn btn-large btn-blue" do %>
+			<i class="icon-envelope-alt icon-large"></i>
+			&nbsp;&nbsp;Sign up with Email
+		<% end %>
+    &nbsp;
+    <%= link_to user_omniauth_authorize_path(:facebook), :class => "btn btn-facebook btn-large" do %>
+      <i class="icon-facebook icon-large"></i>
+      &nbsp;Sign up with Facebook
+    <% end %>
+		&nbsp;
+		<%= link_to about_path, :class => "btn btn-large btn-grey" do %>
+			<i class="icon-info-sign icon-large"></i>
+			&nbsp;&nbsp;Find out More
+		<% end %>
+	</p>
+	
+</div>

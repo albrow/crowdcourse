@@ -1,0 +1,12 @@
+<% provide(:title, @category.name) %>
+
+<%= render 'shared/breadcrumbs', :crumbs => [{ :name => "All Courses", :path => courses_path }, { :name => @category.name, :path => nil } ] %>
+
+<div class="hero-unit">
+	<h1><%= @category.name %></h1>
+	<p>
+		<%= @category.description %>
+	</p>
+</div>
+
+<%= render 'lists/general_list', :items => @category.courses %>

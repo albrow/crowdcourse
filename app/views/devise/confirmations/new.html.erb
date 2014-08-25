@@ -1,0 +1,15 @@
+<%= provide(:title, 'Resend Confirmation') %>
+
+<div class="grey-box devise-form-container vertical-space-more">
+<h2>Resend Confirmation Instructions</h2><br/>
+
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.submit "Resend", :class => "btn btn-large btn-blue" %>
+<% end %>
+
+</div>

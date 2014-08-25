@@ -1,0 +1,32 @@
+<% size ||= :large %>
+<% if !defined?(prioritized) %>
+	<% prioritized = true %>
+<% end %>
+
+<% if prioritized %>
+	<% items = items.prioritized %>
+<% end %>
+
+<% section_id ||= items.first.section_id %>
+
+<ul class="editable-components" id="editable-components-<%= section_id %>"
+	data-update-url="<%= sort_components_url %>" data-id="<%= section_id %>">
+
+<% items.each.with_index do |item, i| %>
+		
+	<%= render 'components/editable_component', :component => item %>
+				
+<% end %>
+
+</ul>
+
+<div class="clear"></div>
+
+<div class="center new-lesson-button-container">
+	<%= link_to "#", :class => 'btn btn-blue new-lesson-button', 'data-section-id' => section_id, 'data-url' => components_url do %>
+		<i class="new-lesson-icon icon-plus"></i>
+		<span class="new-lesson-text">add lesson</span>
+	<% end %>
+</div>
+
+<div class="clear"></div>

@@ -1,0 +1,25 @@
+<div class="span3 grey-box">
+	<h2>Settings</h2>
+	
+	<div class="holder">
+		<div class="row-fluid">
+			<div class="span12">
+				<ul class="nav nav-pills nav-stacked colored-nav">
+				  	
+		  		<li <%= "class='active'" if active == :account %> >
+		  			<%= link_to "Account", edit_user_registration_path %>
+		  		</li>
+
+				 	<li <%= "class='active'" if active == :privacy %> >
+						<%= link_to "Privacy", privacy_settings_path %>
+				  </li>
+
+				  <li <%= "class='active'" if active == :donation %> >
+						<%= link_to "Donations", donation_settings_path %>
+				  </li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<%= provide(:title, 'Privacy Settings') %>
+
+<div class="row">
+
+  <%= render 'settings/settings_nav', :active => :privacy %>
+
+  <div class="span9 grey-box">
+  <h2>Privacy</h2>
+  <br/>
+  <h3>Choose what will appear on your <%= link_to "profile", profile_path %>:</h3>
+  <br/>
+
+    <%= form_for @user, :url => update_user_privacy_settings_path do |f| %>
+      
+      <p class="medium left-space">
+
+        <%= f.check_box :show_stats, :value => @user.show_stats? %>
+        <%= f.label :show_stats, :class => "inline" %>
+        <br/><br/>
+
+        <%= f.check_box :show_activity, :value => @user.show_activity? %>
+        <%= f.label :show_activity, :class => "inline" %>
+        <br/><br/>
+
+        <%= f.check_box :show_videos_made, :value => @user.show_videos_made? %>
+        <%= f.label :show_videos_made, :class => "inline" %>
+        <br/><br/>
+
+        <%= f.check_box :show_full_name, :value => @user.show_full_name? %>
+        <%= f.label :show_full_name, :class => "inline" %>
+        <br/><br/>
+
+        <%= f.check_box :show_email, :value => @user.show_email? %>
+        <%= f.label :show_email, :class => "inline" %>
+        <br/><br/>
+      </p>
+
+      <%= f.submit "Update Settings", :class => "btn btn-blue btn-large" %>
+    <% end %>
+
+  </div>
+</div>

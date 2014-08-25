@@ -1,0 +1,160 @@
+// @import "colors";
+// @import "bootstrap";
+// @import "custom";
+
+.component-item {
+	margin-bottom: 20px;
+	display: inline-block;
+}
+
+.components-container {
+	margin-left: 0px;
+	//margin-bottom: 40px;
+}
+
+.component-video-count {
+	float: right;
+	text-align: right;
+}
+
+li.editable-component {
+	list-style: none;
+}
+
+li.editable-component.with-color {
+	&:nth-child(3n+0) {
+		@extend .blue-accent;
+		.component-edit>a, .component-delete>a {
+			color: lighten($dark-grey, 20%);
+			&:hover {
+				color: $dark-grey;
+				text-decoration: none;
+			}
+		}
+	}
+	&:nth-child(3n+1) {
+		@extend .green-accent;
+		.component-edit>a, .component-delete>a {
+			color: lighten($dark-grey, 20%);
+			&:hover {
+				color: $dark-grey;
+				text-decoration: none;
+			}
+		}
+	}
+	&:nth-child(3n+2) {
+		@extend .purple-accent;
+		.component-edit>a, .component-delete>a {
+			color: lighten($dark-grey, 20%);
+			&:hover {
+				color: $dark-grey;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+li.editable-component.without-color {
+	a:not(.btn) {
+		color: lighten($dark-grey, 20%);
+		&:hover {
+			color: $dark-grey;
+			text-decoration: none;
+		}
+	}
+}
+
+li.editable-component.without-color.active {
+	@extend .blue-accent;
+}
+
+.editable-component-header {
+	width: 510px;
+	font-size: 14px;
+	margin-top: 8px;
+	float: none;
+	.handle {
+		font-size: 16px;
+		font-weight: 900;
+		cursor: move;
+	}
+	padding: 5px;
+	@include border-radius(4px);
+	border: 1px solid #ccc;
+	background-color: $white;
+}
+
+.editable-components-section {
+	margin-bottom: 20px;
+}
+
+.editable-components-section-name {
+	margin-bottom: 5px;
+}
+
+.component-edit {
+	font-size: 14px;
+	color: lighten($dark-grey, 20%);
+	&:hover {
+		cursor: pointer;
+		color: $dark-grey;
+		text-decoration: none;
+	}
+}
+
+.component-edit-form-container {
+	width: 490px;
+	padding: 10px;
+	background-color: darken($almost-white, 10%);
+	margin-left: 5px;
+	border: 1px solid #aaa;
+	border-top: 0;
+	z-index: -1;
+	@include border-radius(0px 0px 5px 5px);
+	textarea {
+		margin-bottom: 0px;
+	}
+	.edit_component {
+		margin-bottom: 0px;
+	}
+}
+
+.component-delete {
+	font-size: 12px;
+	color: lighten($dark-grey, 20%);
+	&:hover {
+		cursor: pointer;
+		color: $dark-grey;
+		text-decoration: none;
+	}
+	margin-left: 3px;
+}
+
+.new-lesson-button-container {
+	margin-top: 15px;
+	margin-bottom: 40px;
+}
+
+.new-lesson-button {
+	// line-height: 20px;
+	// color: lighten($dark-grey, 20%);
+	// &:hover {
+	// 	color: $dark-grey;
+	// 	text-decoration: none;
+	// }
+}
+
+.new-lesson-icon {
+	// font-size: 20px;
+	// line-height: 24px;
+	// display: inline-block;
+	//vertical-align: middle;
+}
+
+.new-lesson-text {
+	// line-height: 24px;
+	// font-size: 12px;
+	// //vertical-align: middle;
+	// margin-top: -3px;
+	// display: inline-block;
+}

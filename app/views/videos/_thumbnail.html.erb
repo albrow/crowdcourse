@@ -1,0 +1,93 @@
+
+<%# 
+
+	Accepts a few arguments: 
+		- video (requred)
+		- size = :small, :medium, :large (default = :medium)
+		- bg_color = :white, :grey (default = :grey)
+		- accent_color = :blue, :green, :purple (default = :blue)
+		- show = [:compontent, :creator, :views, :rating, :duration, :date] (default all true)
+							note: also controls order!
+
+%>
+
+<% size ||= :medium %>
+<% bg_color ||= :grey %>
+<% accent_color ||= :blue %>
+<% show ||= [ :component, :creator, :views, :rating, :duration, :date ] %>
+
+<% thumb = video.thumbnail(size) %>
+
+<div class="video-thumb-item video-thumb-item-<%= size %> video-thumb-item-<%= bg_color %> <%= accent_color %>-accent">
+
+	<div class="video-thumb-image-container">
+		<%= link_to video, :class => "video-thumb-link" do %>
+
+		  <%= 
+				image_tag thumb[:url], 
+				:width => thumb[:width], 
+				:height => thumb[:height],
+				:class => "video-thumb-image"
+			%>
+
+		<% end %>
+	</div>
+
+	<% show.each do |item| %>
+	<%# go through each item in the array and render it %>
+		<% if item == :component %>
+
+			<div class="video-thumb-name-link">
+				<% if size == :medium %>
+					<h3><%= link_to video.component.name, video %></h3>
+				<% elsif size == :small %>
+					<h4><%= link_to video.component.name, video %></h4>
+				<% end %>
+			</div>
+
+		<% elsif item == :creator %>
+
+			<div class="video-thumb-creator-link">
+				<strong>by:</strong> <%= link_to video.creator.username, video.creator %>
+			</div>
+
+		<% elsif item == :views %>
+
+			<div class="video-thumb-views-count">
+				<strong>views:</strong> <%= video.views.count %>
+			</div>
+
+		<% elsif item == :rating %>
+
+			<div class="video-thumb-rating">
+				<strong>rating:</strong>
+				<% if video.avg_rating %>
+					<%= video.avg_rating.round(1) %>
+				<% else %>
+					n/a
+				<% end %>
+			</div>
+
+		<% elsif item == :duration %>
+
+			<% if video.duration %>
+				<div class="video-thumb-duration">
+					<%# makes use of a custom method added in custom_initializer.rb %>
+					<strong>duration:</strong> <%= video.duration.to_minutes_and_seconds || "n/a" %>
+				</div>
+			<% end %>
+
+		<% elsif item == :date %>
+
+			<div class="video-thumb-created-date">
+				<em><%= time_ago_in_words video.created_at %> ago</em>
+			</div>
+		<% end %>
+
+	<% end %>
+
+</div>
+
+
+
+

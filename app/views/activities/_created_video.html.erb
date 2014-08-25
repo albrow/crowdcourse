@@ -1,0 +1,26 @@
+<%# 
+	
+	This partial requires two arguments- 
+	activity = the activity object 
+	size = the size (applied as a css class, default = medium)
+
+	%>
+
+<% video_id = activity.decoded_data["video_id"] %>
+<% video = Video.find_by_id(video_id) %>
+
+<% if !video.nil? %>
+	<div class="activity-item activity-item-<%= size %>">
+		<span class="activity-points plus">
+			<strong>+</strong>
+			<%= activity.decoded_data["points"] ? activity.decoded_data["points"] : "25" %>
+			points
+		</span>
+		<%= "<br/>".html_safe if size == :small %>
+		Added a video for <%= link_to video.component.name, video %>.
+		<br/>
+		<span class="activity-item-time">
+			<%= time_ago_in_words activity.created_at %> ago
+		</span>
+	</div>
+<% end %>

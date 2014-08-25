@@ -1,0 +1,87 @@
+.gravatar {
+	border: solid 1px #ddd;
+	@include border-radius(4px);
+}
+
+.gravatar-xxsmall {
+	line-height: 12px;
+	height: 18px;
+	width: 18px;
+	display: block;
+}
+
+.profile-gravatar-container {
+	height: 185px;
+}
+
+.profile-change-avatar {
+	//margin-bottom: 10px;
+}
+
+textarea.noresize {
+  resize: none; 
+}
+
+.user-videos-created-container {
+	float: right;
+	h1 {
+		margin-bottom: 10px;
+	}
+}
+
+.user-recent-activity-container {
+	float: right;
+}
+
+.user-signin-make-account {
+	display: inline-block;
+	text-align: right;
+	padding-top: 5px;
+}
+
+.user-signin-top {
+	margin-bottom: 40px;
+}
+
+.user-signin-header {
+	//padding-top: 10px;
+}
+
+.user-item-xsmall {
+	margin-bottom: 8px;
+	margin-left: 8px;
+}
+
+.user-fullname {
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.user-username {
+	//font-weight: bold;
+}
+
+.user-username.username-medium {
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.user-username.username-small {
+	font-size: 14px;
+	line-height: 20px;
+} 
+
+.user-email {
+	font-style: italic;
+}
+
+.user-info {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#password-accordion {
+	margin-top: 8px;
+	margin-bottom: 24px;
+}

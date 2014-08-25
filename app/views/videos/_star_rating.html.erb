@@ -1,0 +1,52 @@
+<%# Takes one arg, the video which is to be rated %>
+<% size ||= :large %>
+<% current_rating = video.avg_rating.round if video.avg_rating %>
+
+<div class="rating rating-<%= size %>" data-avg-rating="<%= current_rating %>">
+
+<%# So this kind of sucks ass, but I have to enclose the erb in minus signs to repress extra spaces 
+in between the stars. This results in some pretty awful code formatting, but w/e it seems like the only way %>
+<% if current_rating %>
+	<%- if current_rating == 5 -%>
+		<%- for i in 5.downto(1) -%><%= "<span class='star filled' data-rating='#{i}'></span>".html_safe -%><%- end -%>
+	<%- else -%>
+
+		<%# create empty stars %>
+		<%- for i in 5.downto(current_rating+1) %><%= "<span class='star' data-rating='#{i}'></span>".html_safe -%><% end -%><%- for i in current_rating.downto(1) -%><%= "<span class='star filled' data-rating='#{i}'></span>".html_safe -%><%- end -%>
+
+	<%- end -%>
+<% else %>
+	<% for i in 5.downto(1) -%><%= "<span class='star' data-rating='#{i}'></span>".html_safe -%><%- end -%>
+<% end %>
+
+</div>
+<div class="rating-details">
+	<% if (video.ratings.size != 0) %>
+		( <strong><%= video.avg_rating.round(1) %></strong> with <%= video.ratings.size %> ratings )
+	<% else %>
+		( not yet rated )
+	<% end %>
+</div>
+
+
+
+
+<%# Eventually this javascript needs to be moved somewhere else %>
+
+<script>
+	$(".star").click( function() {
+		rating = $(this).attr("data-rating");
+		$.post("/rate_video", {'value': rating, 'video_id': <%= video.id %>}, 
+			function(data) {
+				// the response to POST is json encoded data,
+				// indicating whether or not the post was successful
+				// if unsuccessful, it gives a reason
+				//console.log(data);
+				if (data["success"]) {
+					$(".rating-details").html("( Your rating: " + rating + " )");
+				} else {
+					$(".rating-details").html("( " + data["reason"] + " )");
+				}
+		});
+	});
+</script>

@@ -1,0 +1,95 @@
+<% provide(:title, "Search") %>
+
+<% if @query.blank? %>
+	<% provide(:title, "Search") %>
+<% else %>
+	<% provide(:title, "Results for #{@query}") %>
+<% end %>
+
+<div class="hero-unit">
+	<h1>Site-Wide Search</h1>
+
+	<%= render 'search/global_search_form' %>
+
+	<p>
+		<% if !@query.blank? %>
+			<% if !(@components.empty? && @other_results.empty?) %>
+				Showing <%= pluralize (@other_results.size + @components.size), "result" %> for "<%= @query %>"
+			<% else %>
+				Sorry, we couldn't find any results for "<%= @query %>"
+			</p>
+			<p>
+				If you would like to teach a subject we don't have yet, please <%= link_to "let us know", contact_path %>.<br/>
+				We will create new courses based on interest.
+			<% end %>
+		<% end %>
+	</p>	
+
+</div>
+
+<div class="search-results">
+	<%# sort the results into their respective categories (each has its own array) %>
+
+	<%  
+		$courses = []
+		$categories = []
+		$users = []
+	%>
+
+	<% if @other_results %>
+		<% @other_results.each do |r| %>
+
+			<% if r.searchable.class == Course.first.class # the result is a course %>
+				<% $courses << r.searchable %>
+			<% elsif r.searchable.class == Category.first.class # the result is a category %>
+				<% $categories << r.searchable %>
+			<% elsif r.searchable.class == User.first.class # the result is a user %>
+				<% $users << r.searchable %>
+			<% end %>
+
+		<% end %>
+	<% end %>
+
+	
+
+	<%# --------------------------------------------------------
+			Now we are ready to render the results on the screen.
+			The accent colors are psuedo-randomized to ensure no adjacent elements are the same color.
+			(actually with this implementation, same-color adjacency is possible but highly unlikely)
+	%>
+
+	<% colors = [:blue, :purple, :green] %>
+
+	<% if @components %>
+		<% if !@components.empty? %>
+			<div class="list-section-header">
+				<h1>Lessons</h1>
+			</div>
+			<%= render 'lists/general_list', :items => @components, :prioritized => false, :colors => colors %>
+		<% end %>
+	<% end %>
+
+	<% if !$courses.empty? %>
+		<div class="list-section-header">
+			<h1>Courses</h1>
+		</div>
+		<% colors.unshift colors.pop #shift color order %>
+		<%= render 'lists/general_list', :items => $courses, :prioritized => false, :colors => colors  %>
+	<% end %>
+
+	<% if !$categories.empty? %>
+		<div class="list-section-header">
+			<h1>Categories</h1>
+		</div>
+		<% colors.unshift colors.pop #shift color order %>
+		<%= render 'lists/general_list', :items => $categories, :prioritized => false, :colors => colors  %>
+	<% end %>
+
+	<% if !$users.empty? %>
+		<div class="list-section-header">
+			<h1>Users</h1>
+		</div>
+		<% colors.unshift colors.pop #shift color order %>
+		<%= render 'lists/general_list', :items => $users, :prioritized => false, :colors => colors  %>
+	<% end %>
+</div>

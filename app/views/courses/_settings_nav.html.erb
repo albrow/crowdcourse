@@ -1,0 +1,32 @@
+<div class="span4 grey-box">
+	<h2>Course Settings</h2>
+	<h3 class="lighten"><%= link_to @course.name, @course, :class => "link-light-grey" %></h3>
+	
+	<div class="holder">
+		<div class="row-fluid top-space">
+			<div class="span12">
+				<ul class="nav nav-pills nav-stacked colored-nav">
+				  	
+		  		<li <%= "class='active'" if active == :basic_info %> >
+		  			<%= link_to "Basic Info", @course.info_settings_path %>
+		  		</li>
+
+		  		<li <%= "class='active'" if active == :syllabus %> >
+						<%= link_to "Syllabus", @course.syllabus_settings_path %>
+		  		</li>
+
+					
+					<!-- Hide for now (not ready yet) -->
+				 	<!-- <li <%= "class='active'" if active == :contributors %> >
+						<%= link_to "Contributors", @course.contributors_settings_path %>
+				  </li> -->
+
+				  <li <%= "class='active'" if active == :maintainers %> >
+						<%= link_to "Maintainers", @course.maintainers_settings_path %>
+				  </li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

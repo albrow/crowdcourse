@@ -1,0 +1,988 @@
+// @import "bootstrap";
+// @import "colors";
+
+body {
+	background-image: url("bg.png");
+	background-repeat: repeat;
+	color: $dark-grey;
+	height: 100%;
+}
+
+// ------- Add cursor pointer to an element
+.hover-pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// -------- Quick classes for changing text color ------
+
+.color-white {
+  color: $white;
+}
+
+.color-grey {
+  color: $dark-grey;
+}
+
+.color-purple {
+  color: $purple;
+}
+
+.color-blue {
+  color: $blue;
+}
+
+.color-green {
+  color: $green;
+}
+
+// ------- Color accents for search results and lists -------
+
+.blue-accent {
+  a:not(.btn) {
+    color: $blue;
+    &:hover {
+      color: darken($blue, 10%);
+    }
+    h1,h2,h3,h4,h5 {
+      &:hover {
+        color: darken($blue, 10%);
+      }
+    }
+  }
+  h1, h2, h3, h4, h5 {
+    color: $blue;
+  }
+}
+
+.green-accent {
+  a:not(.btn) {
+    color: $green;
+    &:hover {
+      color: darken($green, 10%);
+    }
+  }
+  h1, h2, h3, h4, h5 {
+    color: $green;
+  }
+}
+
+.purple-accent {
+  a:not(.btn) {
+    color: $purple;
+    &:hover {
+      color: darken($purple, 10%);
+    }
+  }
+  h1, h2, h3, h4, h5 {
+    color: $purple;
+  }
+}
+
+.lighter {
+  color: lighten($dark-grey, 25%);
+}
+// -------  Classes to help with spacing  ----------
+
+.vertical-space {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.vertical-space-more {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.vertical-space-most {
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
+.bottom-space {
+	margin-bottom: 20px;
+}
+
+.bottom-space-more {
+	margin-bottom: 40px;
+}
+
+.bottom-space-most {
+	margin-bottom: 60px;
+}
+
+.top-space {
+  margin-top: 20px;
+}
+
+.top-space-more {
+  margin-top: 40px;
+}
+
+.top-space-most {
+  margin-top: 60px
+}
+
+.left-space {
+  margin-left: 20px;
+}
+
+.left-space-more {
+  margin-left: 40px;
+}
+
+.left-space-most {
+  margin-left: 60px;
+}
+
+.right-space {
+  margin-right: 20px;
+}
+
+.right-space-more {
+  margin-right: 40px;
+}
+
+.right-space-most {
+  margin-right: 60px
+}
+
+#tab1, #tab2 {
+	background-color: $white;
+}
+
+[class*="span"] {
+  @include box-sizing(border-box);
+}
+
+.grey-box {
+  padding: 20px;
+  float: left;
+  background-color: $almost-white;
+  border: 1px solid #ddd;
+  @include border-radius(4px);
+}
+
+.white-box {
+  padding: 20px;
+  float: left;
+  background-color: $white;
+  border: 1px solid #ddd;
+  @include border-radius(4px);
+}
+
+.grey-box.more-padding, .white-box.more-padding {
+  padding: 40px;
+}
+
+.grey-box.less-padding, .white-box.less-padding {
+  padding: 5px;
+}
+
+.holder {
+  @include box-sizing(border-content);
+}
+
+.grey-box.no-padding {
+  padding: 0px;
+}
+
+.grey-marker {
+  //used to help with widths and measuring
+  background-color: $dark-grey;
+  color: white;
+  @include border-radius(4px);
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+hr {
+  background-color: #c5c5c5;
+  height: 1px;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.center, .align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.clear {
+  clear:both;
+  //@include clearfix();
+}
+
+.normal-weight {
+  font-weight: 300;
+}
+
+h1.large {
+  font-size: 48px;
+  line-height: 60px;
+}
+
+h1.huge {
+  font-size: 60px;
+  line-height: 72px;
+}
+
+p.large, div.large {
+  font-size: 20px;
+  line-height: 28px;
+  label, input, select, option, textarea {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+p.medium, div.medium {
+  font-size: 16px;
+  line-height: 22px;
+  label, input, select, option, textarea {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+span.small {
+  font-size: 12px;
+  color: lighten($dark-grey, 15%);
+}
+
+.search-box {
+  width: 300px;
+}
+
+.twofer {
+  // a container for two elements
+  float: left;
+  width: 100%;
+}
+
+.threesome {
+  // a container for three elements
+  float: left;
+  width: 100%;
+}
+
+.icon-grey {
+  color: lighten($dark-grey, 20%);
+  &:hover {
+    cursor: pointer;
+    color: $dark-grey;
+    text-decoration: none;
+  }
+}
+
+.icon-question-sign.icon-large {
+  line-height: 16px;
+  font-size: 15px;
+}
+
+.top-link {
+  visibility: hidden;
+  @include opacity(40);
+  padding: 5px;
+  padding-top: 10px;
+  background-color: $black;
+  position: fixed;
+  right: 3%;
+  top: 100px;
+  width: 50px;
+  color: #ccc;
+  text-decoration: none;
+  @include border-radius(8px);
+  &:hover {
+    @include opacity(60);
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+.top-link-icon {
+  font-size: 30px;
+  font-weight: 400;
+  font-weight: bold;
+}
+
+.top-link-text {
+  font-weight: bold;
+}
+
+.btn-label {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+// ----- Debugging ---------
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 60px;
+  @include box_sizing;
+}
+
+
+
+// Navbar account dropdown
+
+.account-dropdown-thumbnail {
+  margin-left: 5px;
+  float: left;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+.account-dropdown-details {
+  margin-bottom: 12px;
+  margin-top: 2px;
+}
+
+
+.field_with_errors {
+  font-weight: bold;
+  label {
+    font-weight: bold;
+    &:after {
+      content: "*";
+    }
+  }
+}
+
+
+//////
+// -----------------------------------------------
+// -------    bootstrap overrides   --------------
+// -----------------------------------------------
+//////
+
+// ----------------------
+// Navbar
+
+.navbar-custom {
+  overflow: visible;
+  margin-bottom: 18px;
+  // fix wonky text problem in webkit
+  -webkit-transform: translate3d(0,0,0.1);
+}
+
+.navbar-custom .brand:hover {
+  text-decoration: none;
+}
+
+.navbar-custom .brand {
+  float: left;
+  display: block;
+  padding: 4px 20px 12px;
+  margin-left: -20px;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1;
+  color: $dark-grey;
+
+	> a {
+		color: $dark-grey;
+		text-decoration: none;
+
+		:hover {
+			text-decoration: none;
+			color: $dark-grey;
+		}
+	}
+
+}
+
+.navbar-custom .brand .brand-text {
+  font-size: 22px;
+  padding-top: 5px;
+  float: left;
+  margin-left: 3px;
+}
+
+.navbar-custom .brand .brand-subtext {
+  font-size: 13px;
+  padding-top: 16px;
+  float: left;
+  margin-left: 3px;
+  color: $blue;
+}
+
+.navbar-custom .nav {
+  position: relative;
+  display: block;
+  margin: 0 10px 0 0;
+}
+
+.navbar-inner {
+	background-color: $white;
+  background-image: none;
+	border-radius: 0px;
+	border-radius-bottom: 0px;
+	height: 40px;
+	padding-top: 10px;
+	padding-bottom: 6px;
+  filter: none;
+  border-bottom: 1px solid #ccc;
+  @include box-shadow(0px 1px 6px rgba(50, 50, 50, 0.3));
+}
+
+
+.nav-pills .active > a, .nav-pills .active > a:hover {
+	background-color: lighten($dark-grey, 10%);
+  @include box-shadow(inset 1px 1px 4px rgba(0, 0, 0, 0.5));
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid $black;
+}
+
+.navbar-custom .nav-pills {
+	background-color: inherit;
+	@include border-radius(0px);
+	padding: 0;
+	border: none;
+  font-weight: bold;
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.nav-pills {
+	> li {
+		> a {
+			color: $dark-grey;
+			border-bottom: 1px solid transparent; //this is really hacky but it prevents resizing of the pills on hover
+			&:hover {
+				color: $white;
+				background-color: $dark-grey;
+				border: 0;
+			}
+		}
+	}
+}
+
+
+
+// --------------------
+// Buttons
+
+.btn {
+  filter: none;
+  @include buttonBackground($almost-white, darken($almost-white, 10%));
+}
+
+.btn-huge {
+  padding: 14px 22px;
+  font-size: 20px;
+  line-height: 24px;
+  @include border-radius(5px);
+  font-weight: bold;
+  text-shadow: 0px -1px 1px rgba(0,0,0,.5);
+}
+
+.btn-blue, .btn-blue:hover, .btn-green, .btn-green:hover, .btn-purple, .btn-purple:hover, .btn-grey, .btn-grey:hover {
+  text-shadow: 0px 1px 1px rgba(0,0,0,.25);
+  color: $white
+}
+
+.btn-green {
+  @include buttonBackground(lighten($green, 5%), darken($green, 5%));
+}
+
+.btn-blue {
+  @include buttonBackground(lighten($blue, 3%), darken($blue, 8%));
+}
+
+.btn-purple {
+  @include buttonBackground(lighten($purple, 5%), darken($purple, 5%));
+}
+
+.btn-grey {
+	@include buttonBackground(lighten($dark-grey, 8%), darken($dark-grey, 0%));
+}
+
+.btn-grey-hover {
+  //for applying hover with jquery
+  background-color: $dark-grey;
+  background-position: 0 -15px;
+  @include transition(background-position .1s linear);
+}
+
+.btn-large {
+	font-weight: bold;
+}
+
+.btn {
+  // fix wonky text problem in webkit
+  -webkit-transform: translate3d(0,0,0);
+}
+
+// ------------------
+// Links
+
+a {
+	color: $blue;
+	&:hover {
+		color: darken($blue, 10%);
+	}
+}
+
+.link-green {
+	color: $green;
+	&:hover {
+		color: darken($green, 10%);
+	}
+}
+
+.link-purple {
+	color: $purple;
+	&:hover {
+		color: darken($purple, 10%);
+	}
+}
+
+.link-grey {
+  color: $dark-grey;
+  &:hover {
+    color: lighten($dark-grey, 10%);
+  }
+}
+
+.link-light-grey {
+  color: lighten($dark-grey, 25%);
+  &:hover {
+    color: $dark-grey;
+  }
+}
+
+.no-underline {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// ------------------
+// Tabs
+
+.nav {
+	margin-bottom: 0px;
+}
+
+.nav > li > a:hover {
+  background-color: $dark-grey;
+  color: $white;
+   border-bottom: 1px solid transparent;
+  @include opacity(100);
+}
+
+.nav-tabs > li > a {
+  background-color: $dark-grey;
+  color: $white;
+  border: none;
+  border-bottom: 1px solid transparent;
+  @include opacity(70);
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+  color: $dark-grey;
+  @include opacity(100);
+}
+
+.tab-content {
+	padding: 10px;
+	padding-top: 18px;
+	background-color: $white;
+	border: 1px solid #ddd;
+	border-top: none;
+	@include border-radius(0 0 4px 4px);
+}
+
+// ----------------------------
+// Dropdowns
+
+// caret colors
+
+.nav-tabs .dropdown-toggle .caret, .nav-pills .dropdown-toggle .caret {
+  border-top-color: $dark-grey;
+  @include opacity(100);
+  margin-top: 6px;
+}
+.nav-tabs .dropdown-toggle:hover .caret, .nav-pills .dropdown-toggle:hover .caret {
+  border-top-color: $white;
+}
+
+.nav-tabs .active .dropdown-toggle .caret, .nav-pills .active .dropdown-toggle .caret {
+  border-top-color: $white;
+}
+
+.nav .open .caret, .nav .open.active .caret, .nav .open a:hover .caret {
+  border-top-color: $white;
+  @include opacity(100);
+}
+
+.nav-tabs .open .dropdown-toggle, .nav-pills .open .dropdown-toggle, .nav > .open.active > a:hover {
+  color: $white;
+  background-color: $gray;
+  border-color: $gray;
+}
+
+.dropdown-menu {
+  z-index: 99999;
+}
+
+.dropdown-menu > li > a:hover {
+	background-color: $dark-grey;
+}
+
+.dropdown-menu .active > a {
+  border: none;
+  border-left: none;
+  border-right: none;
+  &:hover {
+    border: none;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+// ---------------------------
+// Pills (outside of navbar)
+
+.nav-pills {
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 4px;
+	padding: 4px;
+	padding-left: 6px;
+	border: 1px solid #ddd;
+	display: table; //to shrink to content
+}
+
+// side nav with colored pills
+
+.colored-nav {
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  width: 100%;
+  > li {
+    > a {
+      padding: 12px;
+    }
+  }
+}
+
+.colored-nav .active > a, .colored-nav .active > a:hover {
+  background-color: $blue;
+  @include box-shadow(none);
+  text-shadow: none;
+  border: none;
+}
+
+.colored-nav.colored-nav-blue .active > a, .colored-nav.colored-nav-blue > a:hover {
+  background-color: $blue;
+}
+
+.colored-nav.colored-nav-green .active > a, .colored-nav.colored-nav-green > a:hover {
+  background-color: $green;
+}
+
+.colored-nav.colored-nav-purple .active > a, .colored-nav.colored-nav-purple > a:hover {
+  background-color: $purple;
+}
+
+// ---------------------------
+// Hero-unit
+.hero-unit > h1 {
+	margin-bottom: 8px;
+}
+
+
+// ---------------------------
+// Alerts
+
+//close button adjustments
+
+.close {
+	//override annoying user-agent stylesheets
+	border: 0;
+	background-color: transparent;
+}
+
+.close {
+  color: $black;
+  @include opacity(40);
+  &:hover {
+    color: $black;
+    @include opacity(70);
+  }
+}
+
+// custom colors
+
+.alert {
+  background-color: rgba(255,255,255,.7);
+  text-shadow: none;
+  border: 1px solid $grayLight;
+  @include border-radius(4px);
+}
+
+.alert, .alert-heading {
+  color: $dark-grey;
+}
+
+.alert-green {
+	background-color: $green;
+  background-color: desaturate(lighten($transparent-green, 20%), 5%);
+  border-color: darken($green, 10%);
+}
+.alert-green, .alert-green .alert-heading {
+  color: darken($green, 28%);
+}
+
+.alert-purple {
+  background-color: $purple;
+  background-color: desaturate(lighten($transparent-purple, 35%), 30%);
+  border-color: darken($purple, 10%);
+}
+.alert-purple, .alert-purple .alert-heading {
+  color: darken($purple, 20%);
+}
+
+.alert-blue {
+  background-color: $blue;
+  background-color: desaturate(lighten($transparent-blue, 30%), 40%);
+  border-color: darken($blue, 10%);
+}
+.alert-blue, .alert-blue .alert-heading {
+  color: darken($blue, 20%);
+}
+
+.alert-white {
+	background-color: $white;
+  background-color: $transparent-white;
+  border-color: darken($white, 10%);
+}
+.alert-white, .alert-white .alert-heading {
+  color: darken($white, 40%);
+}
+
+.alert-grey {
+  background-color: $dark-grey;
+  background-color: $transparent-dark-grey;
+  border-color: darken($dark-grey, 10%);
+}
+.alert-grey, .alert-grey .alert-heading {
+  color: darken($dark-grey, 25%);
+}
+
+// --------------------------------
+// Pagination
+
+.pagination a {
+	background-color: $white;
+}
+
+.pagination .active a, .pagination .active a:hover {
+  color: $dark-grey;
+  font-weight: bold;
+}
+
+// -----------------------------
+// Progress Bars
+
+.progress {
+	@include gradient-vertical(lighten($dark-grey, 15%), lighten($dark-grey, 20%));
+	@include box-shadow(inset 0 1px 2px rgba(0,0,0,.5));
+}
+
+.progress-dark {
+  @include gradient-vertical(darken($dark-grey, 6%), darken($dark-grey, 3%));
+  @include box-shadow(inset 0 1px 2px rgba(0,0,0,.8));
+  border: 1px solid #000;
+}
+
+.progress-big {
+  height: 30px;
+  .bar {
+    height: 30px;
+  }
+}
+
+.progress .bar {
+  @include box-shadow(2px 0px 4px -1px rgba(0,0,0,.8));
+}
+
+.progress-blue .bar {
+  @include gradient-vertical($blue, lighten($blue, 10%));
+}
+.progress-blue.progress-striped .bar {
+  @include gradient-striped($blue);
+}
+
+.progress-green .bar {
+  @include gradient-vertical($green, lighten($green, 10%));
+}
+.progress-green.progress-striped .bar {
+  @include gradient-striped($green);
+}
+
+.progress-purple .bar {
+  @include gradient-vertical($purple, lighten($purple, 10%));
+}
+.progress-purple.progress-striped .bar {
+  @include gradient-striped($purple);
+}
+
+// ------------------------------------
+// Forms
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  height: auto;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+// -----------------------------------
+// hero unit
+
+.hero-unit {
+	border: 1px solid #ddd;
+}
+
+// ----------------------------------
+// Thumbnails
+
+.thumbnail {
+  background-color: $almost-white;
+}
+
+.thumbnail.thumbnail-white {
+  background-color: $white;
+}
+
+// ---------------------------------
+// Modal
+
+.modal-header {
+  background-color: $almost-white;
+  padding: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom: 1px solid #ccc;
+}
+
+.modal-body {
+  font-size: 16px;
+  p {
+    font-size: 16px;
+  }
+  padding: 40px;
+  background-image: url("bg.png");
+  background-repeat: repeat;
+}
+
+.modal-footer {
+  border-top: 1px solid #ccc;
+}
+
+// -------------------------------
+// Breadcrumbs
+
+.breadcrumb {
+  filter: none; //fix gradient issue in <= IE9
+}
+
+
+//--------------------------------------------
+// FOCUS STATE
+
+input, textarea {
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  $transition: border linear .2s, box-shadow linear .2s;
+  @include transition($transition);
+}
+input:focus, textarea:focus {
+  border: solid 1px rgba(0, 130, 130, 0.6);
+  $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px rgba(0, 130, 130, .4);
+  @include box-shadow($shadow);
+  outline: 0;
+  outline: thin dotted \9; /* IE6-8 */
+}
+input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
+  @include box-shadow(none); // override for file inputs
+  @include tab-focus();
+}
+
+// -------------------------------------------------
+// WELL
+
+.white-well {
+  background-color: $white;
+  border: 1px solid #ccc;
+  //@include box-shadow(inset 0px 0px 12px rgba(0,0,0,.4));
+}
+
+// -------------------------------------------------
+// ACCORDION
+.accordion-heading.white {
+  background-color: $white;
+}
+
+.accordion-heading {
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.accordion-toggle {
+  color: $dark-grey;
+  &:hover {
+    color: $blue;
+    text-decoration: none;
+  }
+}
+
+.accordion-body.in {
+  background-color: darken($almost-white, 5%);
+  border: 1px solid darken($almost-white, 15%);
+  border-top: none;
+}
+
+// --------------------------------------------------
+// TYPEAHEAD
+
+.typeahead.dropdown-menu {
+  li.active {
+    a {
+      background-color: $blue;
+    }
+  }
+}
+
+

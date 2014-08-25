@@ -1,5 +1,7 @@
-CrowdCourse: A Wiki-Style MOOC Platform Where Anyone Can Contribute 
-===================================================================
+CrowdCourse
+===========
+
+CrowdCourse is a wiki-style MOOC platform where anyone can contribute.
 
 ![CrowdCourse Landing Page](http://oi61.tinypic.com/qnwc8w.jpg)
 
@@ -29,4 +31,3 @@ Technology
 CrowdCourse is built on top of Ruby on Rails version 3.2. It is intended to be deployed to heroku.
 It uses PostgreSQL as a database. The frontend stack consists of Rails templates and some custom
 javascript written using only jQuery.
-

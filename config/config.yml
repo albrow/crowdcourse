@@ -10,7 +10,7 @@ production:
   vimeo_consumer_secret: (Redacted for security)
   vimeo_access_token: (Redacted for security)
   vimeo_access_secret: (Redacted for security)
-  cloudfront_url: http://dl9f4gn4hf44p.cloudfront.net
+  cloudfront_url: http://dag663ag38mwf.cloudfront.net
 
 staging:
   vimeo_consumer_key: (Redacted for security)
